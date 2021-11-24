@@ -1,0 +1,377 @@
+.no-webp {
+  .header {
+    --realism-1: url('../img/realism-1.jpg');
+    --realism-2: url('../img/realism-2.jpg');
+    --realism-3: url('../img/realism-3.jpg');
+    --realism-4: url('../img/realism-4.jpg');
+
+    --impress-1: url('../img/impress-1.jpg');
+    --impress-2: url('../img/impress-2.jpg');
+    --impress-3: url('../img/impress-3.jpg');
+    --impress-4: url('../img/impress-4.jpg');
+
+    --postimpress-1: url('../img/postimpress-1.jpg');
+    --postimpress-2: url('../img/postimpress-2.jpg');
+    --postimpress-3: url('../img/postimpress-3.jpg');
+    --postimpress-4: url('../img/postimpress-4.jpg');
+
+    --vanguard-1: url('../img/vanguard-1.jpg');
+    --vanguard-2: url('../img/vanguard-2.jpg');
+    --vanguard-3: url('../img/vanguard-3.jpg');
+    --vanguard-4: url('../img/vanguard-4.jpg');
+
+    --future-1: url('../img/future-1.jpg');
+    --future-2: url('../img/future-2.jpg');
+    --future-3: url('../img/future-3.jpg');
+    --future-4: url('../img/future-4.jpg');
+  }
+}
+
+.webp {
+  .header {
+    --realism-1: url('../img/realism-1.webp');
+    --realism-2: url('../img/realism-2.webp');
+    --realism-3: url('../img/realism-3.webp');
+    --realism-4: url('../img/realism-4.webp');
+
+    --impress-1: url('../img/impress-1.webp');
+    --impress-2: url('../img/impress-2.webp');
+    --impress-3: url('../img/impress-3.webp');
+    --impress-4: url('../img/impress-4.webp');
+
+    --postimpress-1: url('../img/postimpress-1.webp');
+    --postimpress-2: url('../img/postimpress-2.webp');
+    --postimpress-3: url('../img/postimpress-3.webp');
+    --postimpress-4: url('../img/postimpress-4.webp');
+
+    --vanguard-1: url('../img/vanguard-1.webp');
+    --vanguard-2: url('../img/vanguard-2.webp');
+    --vanguard-3: url('../img/vanguard-3.webp');
+    --vanguard-4: url('../img/vanguard-4.webp');
+
+    --future-1: url('../img/future-1.webp');
+    --future-2: url('../img/future-2.webp');
+    --future-3: url('../img/future-3.webp');
+    --future-4: url('../img/future-4.webp');
+  }
+}
+
+
+.header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+
+  &__top {
+    background-color: $black;
+  }
+
+  &__container {
+    @include flex-align-c-jc-sb;
+  }
+
+  &__container--top {
+    height: 100px;
+  }
+
+  &__login {
+    font-size: 18px;
+    line-height: 1;
+    color: $white;
+    fill: currentColor;
+    transition: color .2s ease-in-out;
+
+    &:hover {
+      color: $primary-light;
+    }
+
+    &.focus-visible {
+      @include focus-bg;
+    }
+
+    &:active {
+      color: $primary;
+    }
+  }
+
+  &__login-icon {
+    width: 13px;
+    height: 13px;
+  }
+
+  &__bottom {
+    background-color: rgba($black, 0.4);
+  }
+
+  &__container--bottom {
+    height: 70px;
+  }
+
+  &__bottom-list {
+    display: flex;
+  }
+
+  &__bottom-list-item {
+    position: relative;
+    perspective: 600px;
+    &:not(:last-child) {
+      margin-right: 98px;
+    }
+  }
+
+  &__bottom-btn {
+    position: relative;
+    padding-right: 15px;
+    font-size: 18px;
+    line-height: 1;
+    color: $white;
+    transition: color .2s ease-in-out;
+
+    &::before,
+    &::after {
+      @include mini-arr;
+      top: 12px;
+      background-color: currentColor;
+      transition: transform .2s ease-in-out;
+    }
+
+    &::before {
+      transform: rotate(45deg);
+      right: 5px;
+    }
+
+    &::after {
+      transform: rotate(-45deg);
+      right: 0;
+    }
+
+    &:hover {
+      color: $primary;
+    }
+
+    &.focus-visible {
+      @include focus-bg;
+    }
+
+    &:active,
+    &.active {
+      color: $secondary;
+
+      &::before {
+        transform: rotate(-45deg);
+      }
+
+      &::after {
+        transform: rotate(45deg);
+      }
+    }
+  }
+
+  &__dropdown {
+    position: absolute;
+    top: 45px;
+    left: 0;
+    padding: 40px;
+    width: 300px;
+    max-height: 300px;
+    background-color: rgba($black, 0.6);
+    transform: translateY(-20%) rotateX(-45deg);
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity .2s ease-in-out, transform .2s ease-in-out, visibility .5s;
+
+    &.open {
+      transform: translateY(0) rotateX(0deg);
+      opacity: 1;
+      visibility: visible;
+    }
+  }
+
+  &__dropdown-item {
+    &:not(:last-child) {
+      margin-bottom: 20px;
+    }
+  }
+
+  &__dropdown-link {
+    position: relative;
+    display: block;
+    padding: 13px 14px;
+    width: 100%;
+    @include bg-c-cv;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 1;
+    color: $white;
+
+    &::after {
+      display: block;
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: 1;
+      width: 100%;
+      height: 100%;
+      border: 2px solid transparent;
+      transition: border-color .2s ease-in-out, background-color .2s ease-in-out;
+    }
+
+    &:hover,
+    &.focus-visible{
+      &::after {
+        border-color: $primary;
+      }
+    }
+
+    &.focus-visible {
+      outline: none;
+    }
+
+    &:active {
+      &::after {
+        border-color: $secondary-light;
+        background-color: rgba($primary-light, 0.4);
+      }
+    }
+
+    &--realism {
+      &-1 {
+        background-image: linear-gradient(rgba($black, 0.3), rgba($black, 0.3)), var(--realism-1);
+      }
+      &-2 {
+        background-image: linear-gradient(rgba($black, 0.3), rgba($black, 0.3)), var(--realism-2);
+      }
+      &-3 {
+        background-image: linear-gradient(rgba($black, 0.3), rgba($black, 0.3)), var(--realism-3);
+      }
+      &-4 {
+        background-image: linear-gradient(rgba($black, 0.3), rgba($black, 0.3)), var(--realism-4);
+      }
+    }
+
+    &--impress {
+      &-1 {
+        background-image: linear-gradient(rgba($black, 0.3), rgba($black, 0.3)), var(--impress-1);
+      }
+      &-2 {
+        background-image: linear-gradient(rgba($black, 0.3), rgba($black, 0.3)), var(--impress-2);
+      }
+      &-3 {
+        background-image: linear-gradient(rgba($black, 0.3), rgba($black, 0.3)), var(--impress-3);
+      }
+      &-4 {
+        background-image: linear-gradient(rgba($black, 0.3), rgba($black, 0.3)), var(--impress-4);
+      }
+    }
+
+    &--postimpress {
+      &-1 {
+        background-image: linear-gradient(rgba($black, 0.3), rgba($black, 0.3)), var(--postimpress-1);
+      }
+      &-2 {
+        background-image: linear-gradient(rgba($black, 0.3), rgba($black, 0.3)), var(--postimpress-2);
+      }
+      &-3 {
+        background-image: linear-gradient(rgba($black, 0.3), rgba($black, 0.3)), var(--postimpress-3);
+      }
+      &-4 {
+        background-image: linear-gradient(rgba($black, 0.3), rgba($black, 0.3)), var(--postimpress-4);
+      }
+    }
+
+    &--vanguard {
+      &-1 {
+        background-image: linear-gradient(rgba($black, 0.3), rgba($black, 0.3)), var(--vanguard-1);
+      }
+      &-2 {
+        background-image: linear-gradient(rgba($black, 0.3), rgba($black, 0.3)), var(--vanguard-2);
+      }
+      &-3 {
+        background-image: linear-gradient(rgba($black, 0.3), rgba($black, 0.3)), var(--vanguard-3);
+      }
+      &-4 {
+        background-image: linear-gradient(rgba($black, 0.3), rgba($black, 0.3)), var(--vanguard-4);
+      }
+    }
+
+    &--future {
+      &-1 {
+        background-image: linear-gradient(rgba($black, 0.3), rgba($black, 0.3)), var(--future-1);
+      }
+      &-2 {
+        background-image: linear-gradient(rgba($black, 0.3), rgba($black, 0.3)), var(--future-2);
+      }
+      &-3 {
+        background-image: linear-gradient(rgba($black, 0.3), rgba($black, 0.3)), var(--future-3);
+      }
+      &-4 {
+        background-image: linear-gradient(rgba($black, 0.3), rgba($black, 0.3)), var(--future-4);
+      }
+    }
+  }
+
+  &__dropdown-text {
+    position: relative;
+    z-index: 2;
+  }
+
+  &__search {
+    display: flex;
+    align-items: center;
+  }
+
+  &__search-btn {
+    width: 23px;
+    height: 23px;
+    fill: $white;
+    margin-top: 3px;
+    margin-right: 9px;
+    transition: fill .2s ease-in-out;
+
+    &:hover {
+      fill: $primary-light;
+    }
+
+    &.focus-visible {
+      @include focus-bg;
+    }
+
+    &:active {
+      fill: $secondary;
+    }
+  }
+
+  &__search-icon {
+    width: 23px;
+    height: 23px;
+  }
+
+  &__search-input {
+    margin: 0 4px 0 0;
+    background-color: transparent;
+    border: 0;
+    border-bottom: 1px solid $white;
+    font-size: 18px;
+    line-height: 25px;
+    color: rgba($white, 0.85);
+    width: 100%;
+    max-width: 218px;
+    transition: boder-color .2s ease-in-out;
+
+    &:hover {
+      border-color: $primary-light;
+    }
+
+    &.focus-visible {
+      outline: none;
+      border-color: $primary-light;
+    }
+
+    &::placeholder {
+      color: currentColor;
+    }
+  }
+}

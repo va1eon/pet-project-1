@@ -1,0 +1,58 @@
+.gallery {
+  @include flex-jc-sb;
+
+  &__dropdown {
+    max-width: 400px;
+  }
+
+  &__dropdown-title {
+    margin: 0 0 10px;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 2;
+    color: $white;
+  }
+
+  &__dropdown-btn {
+    position: relative;
+    padding: 3px 15px;
+    display: block;
+    width: 100%;
+    border: 1px solid $white;
+    border-radius: 6px;
+    text-align: left;
+    font-size: 16px;
+    line-height: 2;
+    color: $white;
+
+    &::before,
+    &::after {
+      @include mini-arr;
+      top: 21px;
+      background-color: currentColor;
+    }
+
+    &::before {
+      transform: rotate(45deg);
+      right: 17px;
+    }
+
+    &::after {
+      transform: rotate(-45deg);
+      right: 12px;
+    }
+  }
+
+  &__info {
+    margin-top: auto;
+    margin-bottom: -10px;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 2;
+    color: $white;
+  }
+
+  &-slider__item {
+    height: 350px;
+  }
+}

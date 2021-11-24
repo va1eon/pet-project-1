@@ -1,0 +1,104 @@
+.tooltip {
+  position: relative;
+  display: inline-block;
+  transform: translateY(3px);
+  width: 16px;
+  height: 16px;
+  background-color: transparent;
+  border: 1px solid $primary;
+  border-radius: 50%;
+  cursor: pointer;
+
+  transition: background-color .1s linear;
+
+  &::before,
+  &::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    z-index: 1;
+    transform: translateX(-50%);
+
+    display: block;
+    background-color: $black;
+    transition: background-color .1s linear;
+  }
+
+  &::before {
+    top: 2px;
+    width: 2px;
+    height: 2px;
+    border-radius: 50%;
+  }
+
+  &::after {
+    bottom: 2px;
+    width: 1px;
+    height: 7px;
+  }
+
+  &__text {
+    position: absolute;
+    bottom: calc(100% + 14px);
+    left: 50%;
+    z-index: 2;
+    transform: translateX(-50%);
+
+    display: inline-block;
+    padding: 9px 11px 10px;
+    width: max-content;
+    max-width: 264px;
+    background-color: $primary;
+    font-size: 12px;
+    line-height: 16px;
+    font-weight: 600;
+    color: $white;
+    text-align: center;
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility .1s linear, opacity .1s linear;
+
+    &::after {
+      content: "";
+      position: absolute;
+      bottom: -8px;
+      left: 50%;
+      z-index: 2;
+      transform: translateX(-50%);
+
+      display: block;
+      width: 0;
+      height: 0;
+      border-style: solid;
+      border-width: 8px 7px 0 7px;
+      border-color: $primary transparent transparent transparent;
+    }
+  }
+
+  &:hover,
+  &.focus-visible,
+  &:active {
+    & .tooltip__text {
+      visibility: visible;
+      opacity: 1;
+    }
+  }
+
+  &:hover,
+  &.focus-visible{
+    background-color: $secondary-light;
+  }
+
+  &.focus-visible {
+    outline: none;
+  }
+
+  &:active {
+    background-color: $primary;
+
+    &::before,
+    &::after {
+      background-color: $white;
+    }
+  }
+}

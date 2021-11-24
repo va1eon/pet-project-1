@@ -1,0 +1,153 @@
+.slider {
+  margin-top: 25px;
+  width: 100%;
+  max-width: 1150px;
+  overflow: hidden;
+
+  &__controllers {
+    display: flex;
+    align-items: center;
+    margin-bottom: 28px;
+
+    &--gallery {
+      margin-left: 3px;
+    }
+
+    &--editions {
+      margin-top: 7px;
+      margin-left: 10px;
+    }
+  }
+
+  &__pagination {
+    margin: 0 19px;
+    font-size: 16px;
+    line-height: 2;
+    color: $white;
+  }
+
+  &-btn {
+    position: relative;
+    width: 30px;
+    height: 30px;
+    border-width: 2px;
+    border-style: solid;
+    border-radius: 50%;
+
+    &::before,
+    &::after {
+      @include mini-arr;
+    }
+
+    &::before {
+      top: 10px;
+    }
+
+    &::after {
+      bottom: 10px;
+    }
+
+    &--prev {
+      &::before {
+        left: 8px;
+        transform: rotate(-45deg);
+      }
+
+      &::after {
+        left: 8px;
+        transform: rotate(45deg);
+      }
+    }
+
+    &--next {
+      &::before {
+        right: 8px;
+        transform: rotate(45deg);
+      }
+
+      &::after {
+        right: 8px;
+        transform: rotate(-45deg);
+      }
+    }
+
+    &--light {
+      background-color: $btn-light;
+      border-color: $btn-light;
+
+      &::before,
+      &::after {
+        background-color: $black;
+      }
+    }
+    
+    &--dark {
+      background-color: $btn-slider;
+      border-color: $btn-slider;
+
+      &::before,
+      &::after {
+        background-color: $white;
+      }
+    }
+  }
+
+  &-list {
+    @include flex-column;
+    flex-wrap: wrap;
+    align-content: flex-start;
+    max-height: 750px;
+  }
+
+  &-item {
+    display: block;
+    overflow: hidden;
+    position: relative;
+    width: calc((100% - 100px) / 3);
+  }
+
+  &-lazy-preloader {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: $secondary;
+
+    &::after,
+    &-icon {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      z-index: 10;
+      transform: translate(-50%, -50%);
+      border: 4px solid $secondary-light;
+      border-radius: 50%;
+      animation-name: rotate;
+      animation-duration: 2s;
+      animation-iteration-count: infinite;
+    }
+
+    &::after {
+      content: "";
+      width: 62px;
+      height: 62px;
+      animation-timing-function: linear;
+      border-top-color :transparent;
+      border-bottom-color :transparent;
+    }
+
+    &-icon {
+      width: 42px;
+      height: 42px;
+      animation-timing-function: ease-in-out;
+      border-left-color :transparent;
+      border-right-color :transparent;
+    }
+  }
+}
+
+@keyframes rotate {
+  from {transform: translate(-50%, -50%) rotate(0deg);}
+  to {transform: translate(-50%, -50%) rotate(360deg);}
+}

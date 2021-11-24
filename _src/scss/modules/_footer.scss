@@ -1,0 +1,28 @@
+.footer {
+  background-color: $black;
+
+  &__container {
+    @include flex-align-c-jc-sb;
+    height: 140px;
+  }
+
+  &__social {
+    @include flex-align-c;
+  }
+
+  &__social-item {
+
+    &:not(:first-child) {
+      margin-left: 20px;
+    }
+  }
+
+  &__social-link {
+    fill: $border;
+  }
+
+  &__social-icon {
+    width: 45px;
+    height: 45px;
+  }
+}

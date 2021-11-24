@@ -1,0 +1,291 @@
+.catalog {
+
+  &__header {
+    display: flex;
+    align-items: center;
+  }
+
+  &__tabs {
+    margin-top: -8px;
+    margin-left: 38px;
+    display: flex;
+    align-items: center;
+  }
+
+  &__tabs-item {
+    &:not(:last-child) {
+      margin-right: 46px;
+    }
+  }
+
+  &__tabs-btn {
+    position: relative;
+    width: 46px;
+    height: 46px;
+    border: 2px solid transparent;
+    border-radius: 50%;
+    box-sizing: content-box;
+    @include bg-c-cv;
+
+    &::before {
+      content: "";
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 66px;
+      height: 66px;
+      border: 2px solid transparent;
+      border-radius: 50%;
+      pointer-events: none;
+    }
+
+    &--france {
+      background-image: url('../img/france.png');
+    }
+
+    &--germany {
+      background-image: url('../img/germany.png');
+    }
+
+    &--italy {
+      background-image: url('../img/italy.png');
+    }
+
+    &--russia {
+      background-image: url('../img/russia.png');
+    }
+
+    &--belgium {
+      background-image: url('../img/belgium.png');
+    }
+
+    &.active {
+      pointer-events: none;
+      &::before {
+        border-color: $secondary;
+      }
+    }
+  }
+
+  &__content {
+    margin-top: 49px;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__info {
+    max-width: 750px;
+    margin-right: 50px;
+  }
+
+  &__info-header {
+    margin-bottom: 30px;
+  }
+
+  &__info-title {
+    margin: 0 0 10px;
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 1.3;
+    color: $text;
+  }
+
+  &__info-date {
+    margin: 0 0 10px;
+    font-size: 12px;
+    line-height: 1.3;
+    color: $text-light;
+  }
+
+  &__accordion {
+    @include flex-column;
+    width: 100%;
+    max-width: 800px;
+  }
+
+  &__accordion-item {
+    &:not(:first-child) {
+      margin-top: -1px;
+    }
+
+    & + .catalog__accordion-item {
+      .catalog__accordion-trigger {
+        border-top-color: transparent;
+        &:hover {
+          border-color: $primary;
+        }
+      }
+    }
+
+    &.active {
+      .catalog__accordion-trigger {
+        border-color: $secondary;
+
+        .catalog__accordion-title {
+          color: $secondary;
+        }
+
+        .catalog__accordion-icon {
+          background-color: $secondary-light;
+          border-color: $primary;
+          &::before,
+          &::after {
+            top:20px;
+          }
+
+          &::before {
+            transform: rotate(45deg);
+          }
+
+          &::after {
+            transform: rotate(-45deg);
+          }
+        }
+      }
+
+      & + .catalog__accordion-item {
+        .catalog__accordion-trigger {
+          border-top-color: $border;
+          &:hover {
+            border-color: $primary;
+          }
+        }
+      }
+
+      .catalog__accordion-content {
+        padding: 26px 0;
+        opacity: 1;
+        visibility: visible;
+        max-height: 288px; /// TODO: убери это потом
+      }
+    }
+  }
+
+  &__accordion-trigger {
+    position: relative;
+    display: block;
+    padding: 40px 0;
+    width: 100%;
+    border-top: 1px solid $border;
+    border-bottom: 1px solid $border;
+    text-align: left;
+    transition: border-color .2s ease-in-out;
+
+    &:hover {
+      border-color: $primary;
+
+      .catalog__accordion-title {
+        color: $primary;
+      }
+
+      .catalog__accordion-icon {
+        background-color: $secondary-light;
+        border-color: $secondary-light;
+      }
+    }
+    
+    &.focus-visible {
+      outline: none;
+      .catalog__accordion-title {
+        background-color: $primary;
+        color: $white;
+      }
+    }
+
+    &:active {
+      border-color: $secondary;
+
+      .catalog__accordion-title {
+        color: $secondary;
+      }
+
+      .catalog__accordion-icon {
+        background-color: $secondary-light;
+        border-color: $primary;
+      }
+    }
+  }
+
+  &__accordion-title {
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 1.4;
+    color: $text;
+    transition: color .2s ease-in-out;
+  }
+
+  &__accordion-icon {
+    position: absolute;
+    top: 50%;
+    right: 0;
+    transform: translateY(-50%);
+    display: block;
+    width: 50px;
+    height: 50px;
+    background-color: $btn-light;
+    border: 2px solid $btn-light;
+    border-radius: 50%;
+    transition: background-color .2s ease-in-out, border-color .2s ease-in-out;
+
+    &::before,
+    &::after {
+      content: "";
+      position: absolute;
+      top: 25px;
+      right: 0;
+      width: 12px;
+      height: 1px;
+      background-color: $black;
+      transition: transform .2s ease-in-out, top .2s ease-in-out;
+    }
+
+    &::before {
+      transform: rotate(-45deg);
+      right: 13px;
+    }
+
+    &::after {
+      transform: rotate(45deg);
+      right: 21px;
+    }
+  }
+
+  &__accordion-content {
+    box-sizing: content-box;
+    padding: 0;
+    max-height: 0;
+    opacity: 0;
+    visibility: hidden;
+    overflow: hidden;
+    will-change: max-height;
+    transition: max-height .5s ease-in-out, opacity .5s ease-in-out, padding .5s ease-in-out, visibility 1s;
+  }
+
+  &__accordion-content-list {
+    display: flex;
+    align-items: flex-start;
+    align-content: flex-start;
+    flex-direction: column;
+    flex-wrap: wrap;
+    max-height: 290px;
+    overflow: hidden;
+  }
+
+  &__accordion-content-item {
+    margin-right: 62px;
+  }
+
+  &__accordion-content-link {
+    position: relative;
+    font-size: 16px;
+    line-height: 2;
+    color: $text;
+
+    &::after {
+      opacity: 0;
+      @include under-line;
+      bottom: 0;
+    }
+  }
+}

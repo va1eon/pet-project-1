@@ -1,0 +1,61 @@
+.partners {
+  max-width: 100%;
+  @include flex-align-c;
+
+  &__slider {
+    margin: 0 45px;
+    width: 100%;
+    max-width: 1450px;
+    overflow: hidden;
+  }
+
+  &__list {
+    display: flex;
+    align-items: center;
+    width: 100%;
+  }
+
+  &__item {
+    position: relative;
+    flex-shrink: 0;
+    width: 450px;
+  }
+
+  &__link {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 150px;
+    border: 1px solid darken($border, 20%);
+    opacity: .5;
+    transition:opacity .2s ease-in-out, border-color .2s ease-in-out;
+
+    img {
+      filter: grayscale(1);
+      transition: filter .2s ease-in-out;
+    }
+
+    &:hover {
+      opacity: 1;
+      border-color: $border;
+
+      img {
+        filter: grayscale(0);
+      }
+    }
+
+    &.focus-visible {
+      outline: none;
+      border-color: darken($primary, 20%);
+    }
+
+    &:active {
+      opacity: 1;
+      border-color: $primary;
+
+      img {
+        filter: grayscale(0);
+      }
+    }
+  }
+}

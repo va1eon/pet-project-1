@@ -1,0 +1,98 @@
+.no-webp .hero {
+  --intro-bg-1: url('../img/intro-bg-1.jpg');
+  --intro-bg-2: url('../img/intro-bg-2.jpg');
+  --intro-bg-3: url('../img/intro-bg-3.jpg');
+}
+
+.webp .hero {
+  --intro-bg-1: url('../img/intro-bg-1.webp');
+  --intro-bg-2: url('../img/intro-bg-2.webp');
+  --intro-bg-3: url('../img/intro-bg-3.webp');
+}
+
+.hero {
+  position: relative;
+  padding-top: 241px;
+  padding-bottom: 122px;
+  margin-bottom: 80px;
+  overflow: hidden;
+  background: linear-gradient(-45deg, #ff7c22 20%, #ffe600 100%);
+
+  &::after {
+    position: absolute;
+    content: "";
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 1;
+    @include bg-c-cv;
+    will-change: transform;
+
+    @keyframes background {
+      0% {
+        transform: scale(1);
+        background-image: var(--intro-bg-1);
+      }
+
+      25% {
+        transform: scale(1.2);
+        opacity: 0;
+      }
+
+      50% {
+        transform: scale(1);
+        background-image: var(--intro-bg-2);
+        opacity: 1;
+      }
+
+      75% {
+        transform: scale(1.2);
+        opacity: 0;
+      }
+
+      100% {
+        transform: scale(1);
+        background-image: var(--intro-bg-3);
+        opacity: 1;
+      }
+    }
+  }
+
+  &.no-animate {
+    &::after {
+      background-image: var(--intro-bg-1);
+    }
+  }
+
+  &.animate {
+    &::after {
+      animation: background alternate-reverse 20s ease-in-out infinite;
+    }
+  }
+
+  &__container {
+    position: relative;
+    z-index: 2;
+  }
+
+  &__inner {
+    max-width: 597px;
+  }
+
+  &__title {
+    margin: 0 0 20px;
+    font-weight: 700;
+    font-size: 72px;
+    line-height: 1.15;
+    color: $white;
+  }
+
+  &__text {
+    margin: 0 0 91px;
+    font-weight: bold;
+    font-size: 18px;
+    line-height: 167%;
+    color: $white;
+  }
+}

@@ -1,0 +1,90 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+.visually-hidden {
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  border: 0;
+  padding: 0;
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  margin: -1px;
+}
+
+.list-reset {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.btn-reset {
+  padding: 0;
+  border: none;
+  background: none;
+  cursor: pointer;
+}
+
+.center {
+  text-align: center;
+}
+
+.img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+a {
+  text-decoration: none;
+}
+
+.body {
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 400;
+}
+
+.container {
+  width: 100%;
+  max-width: 1630px;
+  padding: 0 15px;
+  margin: 0 auto;
+
+  &--contacts {
+    height: 100%;
+  }
+}
+
+.logo {
+  display: block;
+
+  &.focus-visible {
+    outline: 2px solid $primary;
+    outline-offset: 2px;
+  }
+}
+
+.default-link {
+  position: relative;
+  display: inline-block;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 2;
+  color: $primary;
+
+  &--light {
+    color: $primary-light;
+  }
+
+  &::after {
+    opacity: 0;
+    @include under-line;
+    bottom: 4px;
+  }
+}

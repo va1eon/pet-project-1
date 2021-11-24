@@ -1,0 +1,37 @@
+.nav {
+  @include flex-align-c-jc-sb;
+  width: 100%;
+  max-width: 77.9%;
+
+  &__list {
+    display: flex;
+    align-items: center;
+  }
+
+  &__item {
+
+    &:not(:last-child) {
+      margin-right: 62px;
+    }
+  }
+
+  &__link {
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 1;
+    color: $white;
+    transition: color .2s ease-in-out;
+
+    &:hover {
+      color: $primary-light;
+    }
+
+    &.focus-visible {
+      @include focus-bg;
+    }
+
+    &:active {
+      color: $secondary;
+    }
+  }
+}
