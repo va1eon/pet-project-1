@@ -1,0 +1,46 @@
+{
+  "name": "blanchard-gulp-builder",
+  "version": "1.0.0",
+  "description": "gulp builder for blanchard landing",
+  "main": "index.js",
+  "scripts": {
+    "start": "gulp",
+    "build": "gulp build",
+    "dev": "gulp build"
+  },
+  "author": "Valery <va1eonmix@gmail.com>",
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/core": "^7.16.0",
+    "@babel/preset-env": "^7.16.4",
+    "babel-loader": "^8.2.3",
+    "browser-sync": "^2.27.7",
+    "del": "^6.0.0",
+    "gulp": "^4.0.2",
+    "gulp-autoprefixer": "^8.0.0",
+    "gulp-babel": "^8.0.0",
+    "gulp-clean-css": "^4.3.0",
+    "gulp-cli": "^2.3.0",
+    "gulp-concat": "^2.6.1",
+    "gulp-htmlmin": "^5.0.1",
+    "gulp-if": "^3.0.0",
+    "gulp-image": "^6.2.1",
+    "gulp-notify": "^4.0.0",
+    "gulp-sass": "^5.0.0",
+    "gulp-sourcemaps": "^3.0.0",
+    "gulp-uglify-es": "^3.0.0",
+    "gulp-webp": "^4.0.1",
+    "sass": "^1.43.4",
+    "webpack-stream": "^7.0.0"
+  },
+  "dependencies": {
+    "focus-visible": "^5.2.0",
+    "normalize.css": "^8.0.1",
+    "simplebar": "^5.3.6",
+    "swiper": "^7.3.0"
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions"
+  ]
+}
