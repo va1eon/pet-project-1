@@ -86,7 +86,6 @@ a {
   }
   
   &.focus-visible {
-    outline: none;
     @include focus-bg;
   }
 

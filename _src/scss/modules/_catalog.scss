@@ -26,6 +26,21 @@
     border-radius: 50%;
     box-sizing: content-box;
     @include bg-c-cv;
+    transition: filter .2s ease-in-out, border-color .2s ease-in-out;
+
+    &:hover,
+    &.focus-visible {
+      filter: drop-shadow(0 0 20px rgba($primary, 0.7));
+    }
+
+    &.focus-visible {
+      outline: none;
+    }
+
+    &:active {
+      border-color: $secondary;
+      filter: none;
+    }
 
     &::before {
       content: "";
@@ -38,6 +53,7 @@
       border: 2px solid transparent;
       border-radius: 50%;
       pointer-events: none;
+      transition: border-color .2s ease-in-out;
     }
 
     &--france {
@@ -281,11 +297,33 @@
     font-size: 16px;
     line-height: 2;
     color: $text;
+    transition: color .2s ease-in-out;
+
+    &:hover {
+      color: $primary;
+
+      &:after {
+        opacity: 1;
+      }
+    }
+
+    &.focus-visible {
+      @include focus-bg;
+    }
+
+    &:active {
+      color: $secondary;
+
+      &:after {
+        opacity: 0;
+      }
+    }
 
     &::after {
       opacity: 0;
       @include under-line;
       bottom: 0;
+      transition: opacity .2s ease-in-out;
     }
   }
 }
