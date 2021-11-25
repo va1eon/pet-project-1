@@ -24,12 +24,34 @@
     font-size: 16px;
     line-height: 2;
     color: $white;
+    transition: background-color .2s ease-in-out;
+
+    &:hover,
+    &.focus-visible,
+    &:active {
+      background-color: rgba($white, 0.2);
+    }
+
+    &.focus-visible {
+      outline: none;
+    }
+
+    &:active {
+      &::before {
+        transform: rotate(-45deg);
+      }
+
+      &::after {
+        transform: rotate(45deg);
+      }
+    }
 
     &::before,
     &::after {
       @include mini-arr;
       top: 21px;
       background-color: currentColor;
+      transition: transform .2s ease-in-out;
     }
 
     &::before {
