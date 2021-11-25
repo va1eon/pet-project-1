@@ -21,6 +21,15 @@
   &__category-field {
     position: relative;
     cursor: pointer;
+
+    &:hover {
+      .editions__text--category {
+        color: $primary-light;
+        &::before {
+          border-color: $primary-light;
+        }
+      }
+    }
   }
 
   &__text {
@@ -32,6 +41,7 @@
     &--category {
       padding-left: 24px;
       line-height: 2;
+      transition: color .2s ease-in-out;
 
       &::before,
       &::after {
@@ -47,6 +57,7 @@
         width: 12px;
         height: 12px;
         border: 1px solid $white;
+        transition: border-color .2s ease-in-out;
       }
 
       &::after {
@@ -55,7 +66,8 @@
         height: 4px;
         border-radius: 50%;
         background-color: $primary-light;
-        opacity: 0;
+        transform: translateY(-50%) scale(0);
+        transition: transform .2s ease-in-out;
       }
     }
 
@@ -67,6 +79,16 @@
 
   &__category-checkbox {
     appearance: none;
+
+    &.focus-visible {
+      + .editions__text--category {
+        color: $primary-light;
+        &::before {
+          border-color: $primary-light;
+        }
+      }
+    }
+
     &:checked {
       + .editions__text--category {
         color: $primary-light;
@@ -76,7 +98,7 @@
         }
 
         &::after {
-          opacity: 1;
+          transform: translateY(-50%) scale(1);
         }
       }
     }
@@ -101,10 +123,21 @@
     padding-left: 10px;
     height: 38px;
     max-width: 73px;
-    background-color: rgba($primary-light, 0.5);
-    border: 0;
+    background-color: rgba($primary, 0.5);
+    border: 1px solid transparent;
     font-size: 16px;
     color: $white;
+    transition: background-color .2s ease-in-out;
+
+    &:hover {
+      background-color: $primary;
+    }
+
+    &.focus-visible {
+      outline: none;
+      background-color: $primary;
+      border-color: $white;
+    }
 
     &::placeholder {
       color: currentColor;
@@ -127,12 +160,6 @@
     flex-direction: row;
     flex-wrap: nowrap;
     margin-left: 5px;
-    /*&::before {
-      position: relative;
-      content: "";
-      display: block;
-      width: 5px;
-    }*/
   }
 
   &-slider__item {
