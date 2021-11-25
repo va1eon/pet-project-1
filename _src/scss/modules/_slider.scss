@@ -94,7 +94,7 @@
         border-color: $primary;
       }
 
-      &:active {
+      &:active:not(:disabled) {
         background-color: $secondary-light;
         border-color: $primary;
       }
@@ -118,7 +118,7 @@
         border-color: $black;
       }
 
-      &:active {
+      &:active:not(:disabled) {
         background-color: $secondary;
         border-color: $black;
       }
