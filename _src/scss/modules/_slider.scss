@@ -33,6 +33,16 @@
     border-width: 2px;
     border-style: solid;
     border-radius: 50%;
+    transition: background-color .2s ease-in-out, border-color .2s ease-in-out, opacity .2s ease-in-out;
+
+    &.focus-visible {
+      outline: none;
+    }
+
+    &:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
 
     &::before,
     &::after {
@@ -75,6 +85,20 @@
       background-color: $btn-light;
       border-color: $btn-light;
 
+      &:hover:not(:disabled) {
+        background-color: $secondary-light;
+        border-color: $secondary-light;
+      }
+
+      &.focus-visible {
+        border-color: $primary;
+      }
+
+      &:active {
+        background-color: $secondary-light;
+        border-color: $primary;
+      }
+
       &::before,
       &::after {
         background-color: $black;
@@ -84,6 +108,20 @@
     &--dark {
       background-color: $btn-slider;
       border-color: $btn-slider;
+
+      &:hover:not(:disabled) {
+        background-color: $primary;
+        border-color: $primary;
+      }
+
+      &.focus-visible {
+        border-color: $black;
+      }
+
+      &:active {
+        background-color: $secondary;
+        border-color: $black;
+      }
 
       &::before,
       &::after {
