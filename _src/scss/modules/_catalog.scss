@@ -82,24 +82,30 @@
         border-color: $secondary;
       }
     }
+
+    &:disabled {
+      cursor: not-allowed;
+    }
   }
 
   &__inner {
-    position: relative;
-    display: flex;
-    overflow: hidden;
+    width: 100%;
   }
 
   &__inner-item {
     width: 100%;
-    flex-shrink: 0;
-    opacity: 0;
-    visibility: hidden;
-    transition: opacity .5s ease-in-out, visibility .5s ease-in-out/*transform .5s ease-in-out*/;
+    display: none;
 
     &.active {
-      opacity: 1;
-      visibility: visible;
+      display: block;
+      visibility: hidden;
+      opacity: 0;
+      transition: opacity .5s ease-in-out, visibility .5s ease-in-out;
+
+      &.visible {
+        opacity: 1;
+        visibility: visible;
+      }
     }
   }
 

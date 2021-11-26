@@ -1,45 +1,41 @@
 export const catalogTabsInit = () => {
-  const catalogTabList = document.getElementById('catalog-tab-list');
-  const catalogArtistInfo = document.getElementById('catalog-artist-info');
 
-  const catalogTabListNodes = catalogTabList.querySelectorAll('.catalog__tabs-btn');
-  const catalogArtistInfoNodes = catalogArtistInfo.querySelectorAll('.catalog__inner-item');
+  const buttons = document.querySelectorAll('.catalog__tabs-btn');
+  const contents = document.querySelectorAll('.catalog__inner-item');
 
-  const checkDisplayNone = el => {
-    if(el.querySelector('.catalog__accordion').style.display === 'none') {
-      el.querySelector('.catalog__accordion').removeAttribute('style');
-    }
-  }
 
-  const changePositionEl = (el, index, classRemove = false) =>{
-    classRemove
-      ? el.classList.remove('active')
-      : null;
-    el.querySelector('.catalog__accordion').style.display = 'none';
-    el.style.transform = `translateX(${index * (-catalogArtistInfoNodes[index].clientWidth)}px)`;
-  }
-
-  const addClassCurEl = (el, index, classRemove = false) => {
-    el.forEach(e => {
-      changePositionEl(e, index, classRemove);
-    });
-    el[index].classList.add('active');
-    checkDisplayNone(el[index]);
-  }
-
-  for(let i = 0; i < catalogTabListNodes.length; i++) {
-    catalogTabListNodes.forEach(e => {
-      if(e.classList.contains('active') && e.dataset.country === catalogArtistInfoNodes[i].dataset.country) {
-        addClassCurEl(catalogArtistInfoNodes, i);
+  buttons.forEach(el => {
+    contents.forEach(item => {
+      if(el.classList.contains('active') && el.dataset.country === item.dataset.country) {
+        item.classList.add('active', 'visible');
       }
-    });
-
-    catalogTabListNodes[i].addEventListener('click', () => {
-      catalogTabListNodes.forEach(e => {
-        e.classList.remove('active');
+    })
+    el.addEventListener('click', e => {
+      const btn = e.currentTarget;
+      buttons.forEach(el => {
+        el.classList.remove('active')
+        el.disabled = true;
       });
-      catalogTabListNodes[i].classList.add('active');
-      addClassCurEl(catalogArtistInfoNodes, i, true);
+      btn.classList.add('active');
+      contents.forEach(content => {
+        if(btn.dataset.country === content.dataset.country){
+          contents.forEach(el => {
+            if(el.classList.contains('active')) {
+              el.classList.remove('visible');
+              setTimeout(() => {
+                el.classList.remove('active');
+              }, 500)
+            }
+          });
+          content.classList.add('active');
+          setTimeout(() => {
+            content.classList.add('visible');
+            buttons.forEach(el => {
+              el.disabled = false;
+            })
+          }, 500)
+        }
+      });
     });
-  }
+  });
 }
