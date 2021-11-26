@@ -2,12 +2,25 @@
   display: flex;
   align-items: stretch;
   flex-wrap: wrap;
-  margin: 19px -25px 50px;
+  margin: 19px -25px 0;
 
   &__item {
-    margin: 0 25px;
+    margin: 0 25px 50px;
     width: calc((100% / 3) - 50px);
     min-height: 700px;
+    max-height: none;
+    will-change: min-height;
+    visibility: visible;
+    transition: min-height .5s ease-in-out, opacity .5s ease-in-out, visibility .5s ease-in-out, margin-bottom .5s ease-in-out;
+
+    &.hidden {
+      position: relative;
+      opacity: 0;
+      visibility: hidden;
+      min-height: 0;
+      max-height: 0;
+      margin-bottom: 0;
+    }
   }
 
   &__item-header {

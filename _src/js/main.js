@@ -6,6 +6,7 @@ import {addScrollHeaderDropdown} from "./functions/addCustomScroll";
 import {editionsSliderInit, gallerySliderInit, partnersSliderInit} from "./functions/sliderInit";
 import {catalogTabsInit} from "./functions/catalogTabsInit";
 import {accordionInit} from "./functions/accordionInit";
+import {eventsOpen} from "./functions/eventsOpen";
 import {validateBookInfo} from "./functions/validateBookInfo";
 import {mapInit} from "./functions/mapInit";
 
@@ -15,6 +16,7 @@ document.addEventListener('DOMContentLoaded', () => {
   let allLinks = [];
   allLinks.push.apply(allLinks, document.querySelectorAll('.nav__link'));
   allLinks.push.apply(allLinks, document.querySelectorAll('.logo'));
+  allLinks.push.apply(allLinks, document.querySelectorAll('[data-to-gallery]'));
 
   allLinks.forEach(link => {
     if(link.getAttribute('href')[0] === '#') {
@@ -60,6 +62,7 @@ document.addEventListener('DOMContentLoaded', () => {
   gallerySliderInit();
   catalogTabsInit();
   accordionInit();
+  eventsOpen();
   editionsSliderInit();
   partnersSliderInit();
   validateBookInfo();
