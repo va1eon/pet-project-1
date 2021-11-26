@@ -6,7 +6,6 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Blanchard | Художественная галерея</title>
   <link rel="stylesheet" href="./css/main.css">
-  <script defer src="https://api-maps.yandex.ru/2.1/?lang=ru_RU&amp;apikey="></script>
   <script defer src="./js/main.js"></script>
 </head>
 <body class="body">
@@ -468,235 +467,843 @@
       <div class="container catalog">
         <div class="catalog__header">
           <h2 class="section__title">Каталог</h2>
-          <ul class="list-reset catalog__tabs">
+          <ul class="list-reset catalog__tabs" id="catalog-tab-list">
             <li class="catalog__tabs-item">
-              <button class="btn-reset catalog__tabs-btn catalog__tabs-btn--france"></button>
+              <button class="btn-reset catalog__tabs-btn catalog__tabs-btn--france" data-country="france" title="Художники Франции" aria-label="Художники Франции"></button>
             </li>
             <li class="catalog__tabs-item">
-              <button class="btn-reset catalog__tabs-btn catalog__tabs-btn--germany"></button>
+              <button class="btn-reset catalog__tabs-btn catalog__tabs-btn--germany" data-country="germany" title="Художники Германии" aria-label="Художники Германии"></button>
             </li>
             <li class="catalog__tabs-item">
-              <button class="btn-reset catalog__tabs-btn catalog__tabs-btn--italy active"></button>
+              <button class="btn-reset catalog__tabs-btn catalog__tabs-btn--italy active" data-country="italy" title="Художники Италии" aria-label="Художники Италии"></button>
             </li>
             <li class="catalog__tabs-item">
-              <button class="btn-reset catalog__tabs-btn catalog__tabs-btn--russia"></button>
+              <button class="btn-reset catalog__tabs-btn catalog__tabs-btn--russia" data-country="russia" title="Художники России" aria-label="Художники России"></button>
             </li>
             <li class="catalog__tabs-item">
-              <button class="btn-reset catalog__tabs-btn catalog__tabs-btn--belgium"></button>
+              <button class="btn-reset catalog__tabs-btn catalog__tabs-btn--belgium" data-country="belgium" title="Художники Белгии" aria-label="Художники Белгии"></button>
             </li>
           </ul>
         </div><!-- /.catalog__header -->
-        <p class="section__text">
-          Акционеры крупнейших компаний, которые представляют собой яркий пример континентально-европейского типа политической культуры, будут объявлены нарушающими общечеловеческие нормы этики и морали. Являясь всего лишь частью общей картины, стремящиеся вытеснить традиционное производство, нанотехнологии и по сей день остаются уделом либералов, которые жаждут быть функционально разнесены на независимые элементы.
-        </p>
-        <div class="catalog__content">
-          <div class="catalog__info">
-            <div class="catalog__info-header">
-              <picture>
-                <source class="img" srcset="./img/catalog-img.webp, ./img/catalog-img@2x.webp 2x" type="image/webp">
-                <source class="img" srcset="./img/catalog-img@2x.jpg 2x">
-                <img class="img" src="./img/catalog-img.jpg" alt="Изображение">
-              </picture>
-            </div>
-            <h3 class="catalog__info-title">Доменико Гирландайо</h3>
-            <p class="catalog__info-date">2&nbsp;июня 1448&nbsp;&mdash; 11&nbsp;января 1494.</p>
+        <div class="catalog__inner" id="catalog-artist-info">
+          <div class="catalog__inner-item" data-country="france">
             <p class="section__text">
-              Один из ведущих флорентийских художников Кватроченто, основатель художественной династии, которую продолжили его брат Давид и сын Ридольфо. Глава художественной мастерской, где юный Микеланджело в течение года овладевал профессиональными навыками. Автор фресковых циклов, в которых выпукло, со всевозможными подробностями показана домашняя жизнь библейских персонажей (в их роли выступают знатные граждане Флоренции в костюмах того времени).
+              Акционеры крупнейших компаний, которые представляют собой яркий пример континентально-европейского типа политической культуры, будут объявлены нарушающими общечеловеческие нормы этики и морали. Являясь всего лишь частью общей картины, стремящиеся вытеснить традиционное производство, нанотехнологии и по сей день остаются уделом либералов, которые жаждут быть функционально разнесены на независимые элементы Франция.
             </p>
-          </div>
-          <ul class="list-reset catalog__accordion" id="accordion">
-            <li class="catalog__accordion-item active">
-              <button class="btn-reset catalog__accordion-trigger" aria-expanded="true">
-                <span class="catalog__accordion-title">C 1400 по 1499 гг.</span>
-                <span class="catalog__accordion-icon"></span>
-              </button>
-              <div class="catalog__accordion-content" aria-hidden="false">
-                <ul class="list-reset catalog__accordion-content-list">
-                  <li class="catalog__accordion-content-item">
-                    <a class="catalog__accordion-content-link" href="#">Бенедетто ди Биндо</a>
-                  </li>
-                  <li class="catalog__accordion-content-item">
-                    <a class="catalog__accordion-content-link" href="#">Бергоньоне, Амброджо</a>
-                  </li>
-                  <li class="catalog__accordion-content-item">
-                    <a class="catalog__accordion-content-link" href="#">Биссоло, Франческо</a>
-                  </li>
-                  <li class="catalog__accordion-content-item">
-                    <a class="catalog__accordion-content-link" href="#">Больтраффио, Джованни</a>
-                  </li>
-                  <li class="catalog__accordion-content-item">
-                    <a class="catalog__accordion-content-link" href="#">Бонсиньори, Франческо</a>
-                  </li>
-                  <li class="catalog__accordion-content-item">
-                    <a class="catalog__accordion-content-link" href="#">Боттичини, Рафаэлло</a>
-                  </li>
-                  <li class="catalog__accordion-content-item">
-                    <a class="catalog__accordion-content-link" href="#">Брамантино</a>
-                  </li>
-                  <li class="catalog__accordion-content-item">
-                    <a class="catalog__accordion-content-link" href="#">Бреа, Людовико</a>
-                  </li>
-                  <li class="catalog__accordion-content-item">
-                    <a class="catalog__accordion-content-link" href="#">Бьяджо д’Антонио Туччи</a>
-                  </li>
-                  <li class="catalog__accordion-content-item">
-                    <a class="catalog__accordion-content-link" href="#">Веккьетта</a>
-                  </li>
-                  <li class="catalog__accordion-content-item">
-                    <a class="catalog__accordion-content-link" href="#">Андреа Верроккьо</a>
-                  </li>
-                  <li class="catalog__accordion-content-item">
-                    <a class="catalog__accordion-content-link" href="#">Доменико Гирландайо</a>
-                  </li>
-                  <li class="catalog__accordion-content-item">
-                    <a class="catalog__accordion-content-link" href="#">Беноццо Гоццоли</a>
-                  </li>
-                  <li class="catalog__accordion-content-item">
-                    <a class="catalog__accordion-content-link" href="#">Граначчи, Франческо</a>
-                  </li>
-                  <li class="catalog__accordion-content-item">
-                    <a class="catalog__accordion-content-link" href="#">Грегорио ди Чекко</a>
-                  </li>
-                  <li class="catalog__accordion-content-item">
-                    <a class="catalog__accordion-content-link" href="#">Джованни да Удине</a>
-                  </li>
-                  <li class="catalog__accordion-content-item">
-                    <a class="catalog__accordion-content-link" href="#">Джованни ди Паоло</a>
-                  </li>
-                  <li class="catalog__accordion-content-item">
-                    <a class="catalog__accordion-content-link" href="#">Джорджоне</a>
-                  </li>
-                  <li class="catalog__accordion-content-item">
-                    <a class="catalog__accordion-content-link" href="#">Парентино, Бернардо</a>
-                  </li>
-                  <li class="catalog__accordion-content-item">
-                    <a class="catalog__accordion-content-link" href="#">Пезеллино</a>
-                  </li>
-                  <li class="catalog__accordion-content-item">
-                    <a class="catalog__accordion-content-link" href="#">Пьетро Перуджино</a>
-                  </li>
-                  <li class="catalog__accordion-content-item">
-                    <a class="catalog__accordion-content-link" href="#">Перуцци, Бальдассаре</a>
-                  </li>
-                  <li class="catalog__accordion-content-item">
-                    <a class="catalog__accordion-content-link" href="#">Пизанелло</a>
-                  </li>
-                  <li class="catalog__accordion-content-item">
-                    <a class="catalog__accordion-content-link" href="#">Пинтуриккьо</a>
-                  </li>
-                </ul>
-              </div>
-            </li>
-            <li class="catalog__accordion-item">
-              <button class="btn-reset catalog__accordion-trigger" aria-expanded="false">
-                <span class="catalog__accordion-title">C 1500 по 1599 гг.</span>
-                <span class="catalog__accordion-icon"></span>
-              </button>
-              <div class="catalog__accordion-content" aria-hidden="true">
+            <div class="catalog__content">
+              <div class="catalog__info">
+                <div class="catalog__info-header">
+                  <div class="none-content-artist">
+                    <img class="none-content-img" src="./img/none-artist.svg" alt="Нет фотографии художника">
+                  </div>
+                </div>
                 <div class="none-content">
-                  <div class="none-content__placeholder"></div>
-                  <div class="none-content__info">
-                    <span class="none-content__title">Здесь пока пусто</span>
-                    <span class="none-content__descr">А в галерее вы всегда можете найти что-то интересное для себя</span>
+                  <div class="none-content__info none-content__info--large">
+                    <span class="none-content__title">Что мы о нём знаем?</span>
+                    <span class="none-content__descr">Пока ничего... Зато мы точно знаем, что в галерее есть на что посмотреть!</span>
                     <div>
                       <a class="default-link" href="#">В галерею</a>
                     </div>
                   </div>
                 </div>
               </div>
-            </li>
-            <li class="catalog__accordion-item">
-              <button class="btn-reset catalog__accordion-trigger" aria-expanded="false">
-                <span class="catalog__accordion-title">C 1600 по 1699 гг.</span>
-                <span class="catalog__accordion-icon"></span>
-              </button>
-              <div class="catalog__accordion-content" aria-hidden="true">
+              <ul class="list-reset catalog__accordion" data-accordion>
+                <li class="catalog__accordion-item active">
+                  <button class="btn-reset catalog__accordion-trigger" aria-expanded="true">
+                    <span class="catalog__accordion-title">C 1400 по 1499 гг.</span>
+                    <span class="catalog__accordion-icon"></span>
+                  </button>
+                  <div class="catalog__accordion-content" aria-hidden="false">
+                    <div class="none-content">
+                      <div class="none-content__placeholder"></div>
+                      <div class="none-content__info">
+                        <span class="none-content__title">Здесь пока пусто</span>
+                        <span class="none-content__descr">А в галерее вы всегда можете найти что-то интересное для себя</span>
+                        <div>
+                          <a class="default-link" href="#">В галерею</a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </li>
+                <li class="catalog__accordion-item">
+                  <button class="btn-reset catalog__accordion-trigger" aria-expanded="false">
+                    <span class="catalog__accordion-title">C 1500 по 1599 гг.</span>
+                    <span class="catalog__accordion-icon"></span>
+                  </button>
+                  <div class="catalog__accordion-content" aria-hidden="true">
+                    <div class="none-content">
+                      <div class="none-content__placeholder"></div>
+                      <div class="none-content__info">
+                        <span class="none-content__title">Здесь пока пусто</span>
+                        <span class="none-content__descr">А в галерее вы всегда можете найти что-то интересное для себя</span>
+                        <div>
+                          <a class="default-link" href="#">В галерею</a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </li>
+                <li class="catalog__accordion-item">
+                  <button class="btn-reset catalog__accordion-trigger" aria-expanded="false">
+                    <span class="catalog__accordion-title">C 1600 по 1699 гг.</span>
+                    <span class="catalog__accordion-icon"></span>
+                  </button>
+                  <div class="catalog__accordion-content" aria-hidden="true">
+                    <div class="none-content">
+                      <div class="none-content__placeholder"></div>
+                      <div class="none-content__info">
+                        <span class="none-content__title">Здесь пока пусто</span>
+                        <span class="none-content__descr">А в галерее вы всегда можете найти что-то интересное для себя</span>
+                        <div>
+                          <a class="default-link" href="#">В галерею</a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </li>
+                <li class="catalog__accordion-item">
+                  <button class="btn-reset catalog__accordion-trigger" aria-expanded="false">
+                    <span class="catalog__accordion-title">C 1700 по 1799 гг.</span>
+                    <span class="catalog__accordion-icon"></span>
+                  </button>
+                  <div class="catalog__accordion-content" aria-hidden="true">
+                    <div class="none-content">
+                      <div class="none-content__placeholder"></div>
+                      <div class="none-content__info">
+                        <span class="none-content__title">Здесь пока пусто</span>
+                        <span class="none-content__descr">А в галерее вы всегда можете найти что-то интересное для себя</span>
+                        <div>
+                          <a class="default-link" href="#">В галерею</a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </li>
+                <li class="catalog__accordion-item">
+                  <button class="btn-reset catalog__accordion-trigger" aria-expanded="false">
+                    <span class="catalog__accordion-title">C 1800 по 1899 гг.</span>
+                    <span class="catalog__accordion-icon"></span>
+                  </button>
+                  <div class="catalog__accordion-content" aria-hidden="true">
+                    <div class="none-content">
+                      <div class="none-content__placeholder"></div>
+                      <div class="none-content__info">
+                        <span class="none-content__title">Здесь пока пусто</span>
+                        <span class="none-content__descr">А в галерее вы всегда можете найти что-то интересное для себя</span>
+                        <div>
+                          <a class="default-link" href="#">В галерею</a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </li>
+                <li class="catalog__accordion-item">
+                  <button class="btn-reset catalog__accordion-trigger" aria-expanded="false">
+                    <span class="catalog__accordion-title">C 1900 по 1999 гг.</span>
+                    <span class="catalog__accordion-icon"></span>
+                  </button>
+                  <div class="catalog__accordion-content" aria-hidden="true">
+                    <div class="none-content">
+                      <div class="none-content__placeholder"></div>
+                      <div class="none-content__info">
+                        <span class="none-content__title">Здесь пока пусто</span>
+                        <span class="none-content__descr">А в галерее вы всегда можете найти что-то интересное для себя</span>
+                        <div>
+                          <a class="default-link" href="#">В галерею</a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </li>
+                <li class="catalog__accordion-item">
+                  <button class="btn-reset catalog__accordion-trigger" aria-expanded="false">
+                    <span class="catalog__accordion-title">C 2000 г.</span>
+                    <span class="catalog__accordion-icon"></span>
+                  </button>
+                  <div class="catalog__accordion-content" aria-hidden="true">
+                    <div class="none-content">
+                      <div class="none-content__placeholder"></div>
+                      <div class="none-content__info">
+                        <span class="none-content__title">Здесь пока пусто</span>
+                        <span class="none-content__descr">А в галерее вы всегда можете найти что-то интересное для себя</span>
+                        <div>
+                          <a class="default-link" href="#">В галерею</a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </li>
+              </ul><!-- /.catalog__accordion -->
+            </div><!-- /.catalog__content -->
+          </div><!-- /.catalog__inner-item -->
+          <div class="catalog__inner-item" data-country="germany">
+            <p class="section__text">
+              Акционеры крупнейших компаний, которые представляют собой яркий пример континентально-европейского типа политической культуры, будут объявлены нарушающими общечеловеческие нормы этики и морали. Являясь всего лишь частью общей картины, стремящиеся вытеснить традиционное производство, нанотехнологии и по сей день остаются уделом либералов, которые жаждут быть функционально разнесены на независимые элементы Герамния.
+            </p>
+            <div class="catalog__content">
+              <div class="catalog__info">
+                <div class="catalog__info-header">
+                  <div class="none-content-artist">
+                    <img class="none-content-img" src="./img/none-artist.svg" alt="Нет фотографии художника">
+                  </div>
+                </div>
                 <div class="none-content">
-                  <div class="none-content__placeholder"></div>
-                  <div class="none-content__info">
-                    <span class="none-content__title">Здесь пока пусто</span>
-                    <span class="none-content__descr">А в галерее вы всегда можете найти что-то интересное для себя</span>
+                  <div class="none-content__info none-content__info--large">
+                    <span class="none-content__title">Что мы о нём знаем?</span>
+                    <span class="none-content__descr">Пока ничего... Зато мы точно знаем, что в галерее есть на что посмотреть!</span>
                     <div>
                       <a class="default-link" href="#">В галерею</a>
                     </div>
                   </div>
                 </div>
               </div>
-            </li>
-            <li class="catalog__accordion-item">
-              <button class="btn-reset catalog__accordion-trigger" aria-expanded="false">
-                <span class="catalog__accordion-title">C 1700 по 1799 гг.</span>
-                <span class="catalog__accordion-icon"></span>
-              </button>
-              <div class="catalog__accordion-content" aria-hidden="true">
+              <ul class="list-reset catalog__accordion" data-accordion>
+                <li class="catalog__accordion-item active">
+                  <button class="btn-reset catalog__accordion-trigger" aria-expanded="true">
+                    <span class="catalog__accordion-title">C 1400 по 1499 гг.</span>
+                    <span class="catalog__accordion-icon"></span>
+                  </button>
+                  <div class="catalog__accordion-content" aria-hidden="false">
+                    <div class="none-content">
+                      <div class="none-content__placeholder"></div>
+                      <div class="none-content__info">
+                        <span class="none-content__title">Здесь пока пусто</span>
+                        <span class="none-content__descr">А в галерее вы всегда можете найти что-то интересное для себя</span>
+                        <div>
+                          <a class="default-link" href="#">В галерею</a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </li>
+                <li class="catalog__accordion-item">
+                  <button class="btn-reset catalog__accordion-trigger" aria-expanded="false">
+                    <span class="catalog__accordion-title">C 1500 по 1599 гг.</span>
+                    <span class="catalog__accordion-icon"></span>
+                  </button>
+                  <div class="catalog__accordion-content" aria-hidden="true">
+                    <div class="none-content">
+                      <div class="none-content__placeholder"></div>
+                      <div class="none-content__info">
+                        <span class="none-content__title">Здесь пока пусто</span>
+                        <span class="none-content__descr">А в галерее вы всегда можете найти что-то интересное для себя</span>
+                        <div>
+                          <a class="default-link" href="#">В галерею</a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </li>
+                <li class="catalog__accordion-item">
+                  <button class="btn-reset catalog__accordion-trigger" aria-expanded="false">
+                    <span class="catalog__accordion-title">C 1600 по 1699 гг.</span>
+                    <span class="catalog__accordion-icon"></span>
+                  </button>
+                  <div class="catalog__accordion-content" aria-hidden="true">
+                    <div class="none-content">
+                      <div class="none-content__placeholder"></div>
+                      <div class="none-content__info">
+                        <span class="none-content__title">Здесь пока пусто</span>
+                        <span class="none-content__descr">А в галерее вы всегда можете найти что-то интересное для себя</span>
+                        <div>
+                          <a class="default-link" href="#">В галерею</a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </li>
+                <li class="catalog__accordion-item">
+                  <button class="btn-reset catalog__accordion-trigger" aria-expanded="false">
+                    <span class="catalog__accordion-title">C 1700 по 1799 гг.</span>
+                    <span class="catalog__accordion-icon"></span>
+                  </button>
+                  <div class="catalog__accordion-content" aria-hidden="true">
+                    <div class="none-content">
+                      <div class="none-content__placeholder"></div>
+                      <div class="none-content__info">
+                        <span class="none-content__title">Здесь пока пусто</span>
+                        <span class="none-content__descr">А в галерее вы всегда можете найти что-то интересное для себя</span>
+                        <div>
+                          <a class="default-link" href="#">В галерею</a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </li>
+                <li class="catalog__accordion-item">
+                  <button class="btn-reset catalog__accordion-trigger" aria-expanded="false">
+                    <span class="catalog__accordion-title">C 1800 по 1899 гг.</span>
+                    <span class="catalog__accordion-icon"></span>
+                  </button>
+                  <div class="catalog__accordion-content" aria-hidden="true">
+                    <div class="none-content">
+                      <div class="none-content__placeholder"></div>
+                      <div class="none-content__info">
+                        <span class="none-content__title">Здесь пока пусто</span>
+                        <span class="none-content__descr">А в галерее вы всегда можете найти что-то интересное для себя</span>
+                        <div>
+                          <a class="default-link" href="#">В галерею</a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </li>
+                <li class="catalog__accordion-item">
+                  <button class="btn-reset catalog__accordion-trigger" aria-expanded="false">
+                    <span class="catalog__accordion-title">C 1900 по 1999 гг.</span>
+                    <span class="catalog__accordion-icon"></span>
+                  </button>
+                  <div class="catalog__accordion-content" aria-hidden="true">
+                    <div class="none-content">
+                      <div class="none-content__placeholder"></div>
+                      <div class="none-content__info">
+                        <span class="none-content__title">Здесь пока пусто</span>
+                        <span class="none-content__descr">А в галерее вы всегда можете найти что-то интересное для себя</span>
+                        <div>
+                          <a class="default-link" href="#">В галерею</a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </li>
+                <li class="catalog__accordion-item">
+                  <button class="btn-reset catalog__accordion-trigger" aria-expanded="false">
+                    <span class="catalog__accordion-title">C 2000 г.</span>
+                    <span class="catalog__accordion-icon"></span>
+                  </button>
+                  <div class="catalog__accordion-content" aria-hidden="true">
+                    <div class="none-content">
+                      <div class="none-content__placeholder"></div>
+                      <div class="none-content__info">
+                        <span class="none-content__title">Здесь пока пусто</span>
+                        <span class="none-content__descr">А в галерее вы всегда можете найти что-то интересное для себя</span>
+                        <div>
+                          <a class="default-link" href="#">В галерею</a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </li>
+              </ul><!-- /.catalog__accordion -->
+            </div><!-- /.catalog__content -->
+          </div><!-- /.catalog__inner-item -->
+          <div class="catalog__inner-item" data-country="italy">
+            <p class="section__text">
+              Акционеры крупнейших компаний, которые представляют собой яркий пример континентально-европейского типа политической культуры, будут объявлены нарушающими общечеловеческие нормы этики и морали. Являясь всего лишь частью общей картины, стремящиеся вытеснить традиционное производство, нанотехнологии и по сей день остаются уделом либералов, которые жаждут быть функционально разнесены на независимые элементы.
+            </p>
+            <div class="catalog__content">
+              <div class="catalog__info">
+                <div class="catalog__info-header">
+                  <picture>
+                    <source class="img" srcset="./img/catalog-img.webp, ./img/catalog-img@2x.webp 2x" type="image/webp">
+                    <source class="img" srcset="./img/catalog-img@2x.jpg 2x">
+                    <img class="img" src="./img/catalog-img.jpg" alt="Изображение">
+                  </picture>
+                </div>
+                <h3 class="catalog__info-title">Доменико Гирландайо</h3>
+                <p class="catalog__info-date">2&nbsp;июня 1448&nbsp;&mdash; 11&nbsp;января 1494.</p>
+                <p class="section__text">
+                  Один из ведущих флорентийских художников Кватроченто, основатель художественной династии, которую продолжили его брат Давид и сын Ридольфо. Глава художественной мастерской, где юный Микеланджело в течение года овладевал профессиональными навыками. Автор фресковых циклов, в которых выпукло, со всевозможными подробностями показана домашняя жизнь библейских персонажей (в их роли выступают знатные граждане Флоренции в костюмах того времени).
+                </p>
+              </div>
+              <ul class="list-reset catalog__accordion" data-accordion>
+                <li class="catalog__accordion-item active">
+                  <button class="btn-reset catalog__accordion-trigger" aria-expanded="true">
+                    <span class="catalog__accordion-title">C 1400 по 1499 гг.</span>
+                    <span class="catalog__accordion-icon"></span>
+                  </button>
+                  <div class="catalog__accordion-content" aria-hidden="false">
+                    <ul class="list-reset catalog__accordion-content-list">
+                      <li class="catalog__accordion-content-item">
+                        <a class="catalog__accordion-content-link" href="#">Бенедетто ди Биндо</a>
+                      </li>
+                      <li class="catalog__accordion-content-item">
+                        <a class="catalog__accordion-content-link" href="#">Бергоньоне, Амброджо</a>
+                      </li>
+                      <li class="catalog__accordion-content-item">
+                        <a class="catalog__accordion-content-link" href="#">Биссоло, Франческо</a>
+                      </li>
+                      <li class="catalog__accordion-content-item">
+                        <a class="catalog__accordion-content-link" href="#">Больтраффио, Джованни</a>
+                      </li>
+                      <li class="catalog__accordion-content-item">
+                        <a class="catalog__accordion-content-link" href="#">Бонсиньори, Франческо</a>
+                      </li>
+                      <li class="catalog__accordion-content-item">
+                        <a class="catalog__accordion-content-link" href="#">Боттичини, Рафаэлло</a>
+                      </li>
+                      <li class="catalog__accordion-content-item">
+                        <a class="catalog__accordion-content-link" href="#">Брамантино</a>
+                      </li>
+                      <li class="catalog__accordion-content-item">
+                        <a class="catalog__accordion-content-link" href="#">Бреа, Людовико</a>
+                      </li>
+                      <li class="catalog__accordion-content-item">
+                        <a class="catalog__accordion-content-link" href="#">Бьяджо д’Антонио Туччи</a>
+                      </li>
+                      <li class="catalog__accordion-content-item">
+                        <a class="catalog__accordion-content-link" href="#">Веккьетта</a>
+                      </li>
+                      <li class="catalog__accordion-content-item">
+                        <a class="catalog__accordion-content-link" href="#">Андреа Верроккьо</a>
+                      </li>
+                      <li class="catalog__accordion-content-item">
+                        <a class="catalog__accordion-content-link" href="#">Доменико Гирландайо</a>
+                      </li>
+                      <li class="catalog__accordion-content-item">
+                        <a class="catalog__accordion-content-link" href="#">Беноццо Гоццоли</a>
+                      </li>
+                      <li class="catalog__accordion-content-item">
+                        <a class="catalog__accordion-content-link" href="#">Граначчи, Франческо</a>
+                      </li>
+                      <li class="catalog__accordion-content-item">
+                        <a class="catalog__accordion-content-link" href="#">Грегорио ди Чекко</a>
+                      </li>
+                      <li class="catalog__accordion-content-item">
+                        <a class="catalog__accordion-content-link" href="#">Джованни да Удине</a>
+                      </li>
+                      <li class="catalog__accordion-content-item">
+                        <a class="catalog__accordion-content-link" href="#">Джованни ди Паоло</a>
+                      </li>
+                      <li class="catalog__accordion-content-item">
+                        <a class="catalog__accordion-content-link" href="#">Джорджоне</a>
+                      </li>
+                      <li class="catalog__accordion-content-item">
+                        <a class="catalog__accordion-content-link" href="#">Парентино, Бернардо</a>
+                      </li>
+                      <li class="catalog__accordion-content-item">
+                        <a class="catalog__accordion-content-link" href="#">Пезеллино</a>
+                      </li>
+                      <li class="catalog__accordion-content-item">
+                        <a class="catalog__accordion-content-link" href="#">Пьетро Перуджино</a>
+                      </li>
+                      <li class="catalog__accordion-content-item">
+                        <a class="catalog__accordion-content-link" href="#">Перуцци, Бальдассаре</a>
+                      </li>
+                      <li class="catalog__accordion-content-item">
+                        <a class="catalog__accordion-content-link" href="#">Пизанелло</a>
+                      </li>
+                      <li class="catalog__accordion-content-item">
+                        <a class="catalog__accordion-content-link" href="#">Пинтуриккьо</a>
+                      </li>
+                    </ul>
+                  </div>
+                </li>
+                <li class="catalog__accordion-item">
+                  <button class="btn-reset catalog__accordion-trigger" aria-expanded="false">
+                    <span class="catalog__accordion-title">C 1500 по 1599 гг.</span>
+                    <span class="catalog__accordion-icon"></span>
+                  </button>
+                  <div class="catalog__accordion-content" aria-hidden="true">
+                    <div class="none-content">
+                      <div class="none-content__placeholder"></div>
+                      <div class="none-content__info">
+                        <span class="none-content__title">Здесь пока пусто</span>
+                        <span class="none-content__descr">А в галерее вы всегда можете найти что-то интересное для себя</span>
+                        <div>
+                          <a class="default-link" href="#">В галерею</a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </li>
+                <li class="catalog__accordion-item">
+                  <button class="btn-reset catalog__accordion-trigger" aria-expanded="false">
+                    <span class="catalog__accordion-title">C 1600 по 1699 гг.</span>
+                    <span class="catalog__accordion-icon"></span>
+                  </button>
+                  <div class="catalog__accordion-content" aria-hidden="true">
+                    <div class="none-content">
+                      <div class="none-content__placeholder"></div>
+                      <div class="none-content__info">
+                        <span class="none-content__title">Здесь пока пусто</span>
+                        <span class="none-content__descr">А в галерее вы всегда можете найти что-то интересное для себя</span>
+                        <div>
+                          <a class="default-link" href="#">В галерею</a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </li>
+                <li class="catalog__accordion-item">
+                  <button class="btn-reset catalog__accordion-trigger" aria-expanded="false">
+                    <span class="catalog__accordion-title">C 1700 по 1799 гг.</span>
+                    <span class="catalog__accordion-icon"></span>
+                  </button>
+                  <div class="catalog__accordion-content" aria-hidden="true">
+                    <div class="none-content">
+                      <div class="none-content__placeholder"></div>
+                      <div class="none-content__info">
+                        <span class="none-content__title">Здесь пока пусто</span>
+                        <span class="none-content__descr">А в галерее вы всегда можете найти что-то интересное для себя</span>
+                        <div>
+                          <a class="default-link" href="#">В галерею</a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </li>
+                <li class="catalog__accordion-item">
+                  <button class="btn-reset catalog__accordion-trigger" aria-expanded="false">
+                    <span class="catalog__accordion-title">C 1800 по 1899 гг.</span>
+                    <span class="catalog__accordion-icon"></span>
+                  </button>
+                  <div class="catalog__accordion-content" aria-hidden="true">
+                    <div class="none-content">
+                      <div class="none-content__placeholder"></div>
+                      <div class="none-content__info">
+                        <span class="none-content__title">Здесь пока пусто</span>
+                        <span class="none-content__descr">А в галерее вы всегда можете найти что-то интересное для себя</span>
+                        <div>
+                          <a class="default-link" href="#">В галерею</a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </li>
+                <li class="catalog__accordion-item">
+                  <button class="btn-reset catalog__accordion-trigger" aria-expanded="false">
+                    <span class="catalog__accordion-title">C 1900 по 1999 гг.</span>
+                    <span class="catalog__accordion-icon"></span>
+                  </button>
+                  <div class="catalog__accordion-content" aria-hidden="true">
+                    <div class="none-content">
+                      <div class="none-content__placeholder"></div>
+                      <div class="none-content__info">
+                        <span class="none-content__title">Здесь пока пусто</span>
+                        <span class="none-content__descr">А в галерее вы всегда можете найти что-то интересное для себя</span>
+                        <div>
+                          <a class="default-link" href="#">В галерею</a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </li>
+                <li class="catalog__accordion-item">
+                  <button class="btn-reset catalog__accordion-trigger" aria-expanded="false">
+                    <span class="catalog__accordion-title">C 2000 г.</span>
+                    <span class="catalog__accordion-icon"></span>
+                  </button>
+                  <div class="catalog__accordion-content" aria-hidden="true">
+                    <div class="none-content">
+                      <div class="none-content__placeholder"></div>
+                      <div class="none-content__info">
+                        <span class="none-content__title">Здесь пока пусто</span>
+                        <span class="none-content__descr">А в галерее вы всегда можете найти что-то интересное для себя</span>
+                        <div>
+                          <a class="default-link" href="#">В галерею</a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </li>
+              </ul><!-- /.catalog__accordion -->
+            </div><!-- /.catalog__content -->
+          </div><!-- /.catalog__inner-item -->
+          <div class="catalog__inner-item" data-country="russia">
+            <p class="section__text">
+              Акционеры крупнейших компаний, которые представляют собой яркий пример континентально-европейского типа политической культуры, будут объявлены нарушающими общечеловеческие нормы этики и морали. Являясь всего лишь частью общей картины, стремящиеся вытеснить традиционное производство, нанотехнологии и по сей день остаются уделом либералов, которые жаждут быть функционально разнесены на независимые элементы Россия.
+            </p>
+            <div class="catalog__content">
+              <div class="catalog__info">
+                <div class="catalog__info-header">
+                  <div class="none-content-artist">
+                    <img class="none-content-img" src="./img/none-artist.svg" alt="Нет фотографии художника">
+                  </div>
+                </div>
                 <div class="none-content">
-                  <div class="none-content__placeholder"></div>
-                  <div class="none-content__info">
-                    <span class="none-content__title">Здесь пока пусто</span>
-                    <span class="none-content__descr">А в галерее вы всегда можете найти что-то интересное для себя</span>
+                  <div class="none-content__info none-content__info--large">
+                    <span class="none-content__title">Что мы о нём знаем?</span>
+                    <span class="none-content__descr">Пока ничего... Зато мы точно знаем, что в галерее есть на что посмотреть!</span>
                     <div>
                       <a class="default-link" href="#">В галерею</a>
                     </div>
                   </div>
                 </div>
               </div>
-            </li>
-            <li class="catalog__accordion-item">
-              <button class="btn-reset catalog__accordion-trigger" aria-expanded="false">
-                <span class="catalog__accordion-title">C 1800 по 1899 гг.</span>
-                <span class="catalog__accordion-icon"></span>
-              </button>
-              <div class="catalog__accordion-content" aria-hidden="true">
+              <ul class="list-reset catalog__accordion" data-accordion>
+                <li class="catalog__accordion-item active">
+                  <button class="btn-reset catalog__accordion-trigger" aria-expanded="true">
+                    <span class="catalog__accordion-title">C 1400 по 1499 гг.</span>
+                    <span class="catalog__accordion-icon"></span>
+                  </button>
+                  <div class="catalog__accordion-content" aria-hidden="false">
+                    <div class="none-content">
+                      <div class="none-content__placeholder"></div>
+                      <div class="none-content__info">
+                        <span class="none-content__title">Здесь пока пусто</span>
+                        <span class="none-content__descr">А в галерее вы всегда можете найти что-то интересное для себя</span>
+                        <div>
+                          <a class="default-link" href="#">В галерею</a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </li>
+                <li class="catalog__accordion-item">
+                  <button class="btn-reset catalog__accordion-trigger" aria-expanded="false">
+                    <span class="catalog__accordion-title">C 1500 по 1599 гг.</span>
+                    <span class="catalog__accordion-icon"></span>
+                  </button>
+                  <div class="catalog__accordion-content" aria-hidden="true">
+                    <div class="none-content">
+                      <div class="none-content__placeholder"></div>
+                      <div class="none-content__info">
+                        <span class="none-content__title">Здесь пока пусто</span>
+                        <span class="none-content__descr">А в галерее вы всегда можете найти что-то интересное для себя</span>
+                        <div>
+                          <a class="default-link" href="#">В галерею</a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </li>
+                <li class="catalog__accordion-item">
+                  <button class="btn-reset catalog__accordion-trigger" aria-expanded="false">
+                    <span class="catalog__accordion-title">C 1600 по 1699 гг.</span>
+                    <span class="catalog__accordion-icon"></span>
+                  </button>
+                  <div class="catalog__accordion-content" aria-hidden="true">
+                    <div class="none-content">
+                      <div class="none-content__placeholder"></div>
+                      <div class="none-content__info">
+                        <span class="none-content__title">Здесь пока пусто</span>
+                        <span class="none-content__descr">А в галерее вы всегда можете найти что-то интересное для себя</span>
+                        <div>
+                          <a class="default-link" href="#">В галерею</a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </li>
+                <li class="catalog__accordion-item">
+                  <button class="btn-reset catalog__accordion-trigger" aria-expanded="false">
+                    <span class="catalog__accordion-title">C 1700 по 1799 гг.</span>
+                    <span class="catalog__accordion-icon"></span>
+                  </button>
+                  <div class="catalog__accordion-content" aria-hidden="true">
+                    <div class="none-content">
+                      <div class="none-content__placeholder"></div>
+                      <div class="none-content__info">
+                        <span class="none-content__title">Здесь пока пусто</span>
+                        <span class="none-content__descr">А в галерее вы всегда можете найти что-то интересное для себя</span>
+                        <div>
+                          <a class="default-link" href="#">В галерею</a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </li>
+                <li class="catalog__accordion-item">
+                  <button class="btn-reset catalog__accordion-trigger" aria-expanded="false">
+                    <span class="catalog__accordion-title">C 1800 по 1899 гг.</span>
+                    <span class="catalog__accordion-icon"></span>
+                  </button>
+                  <div class="catalog__accordion-content" aria-hidden="true">
+                    <div class="none-content">
+                      <div class="none-content__placeholder"></div>
+                      <div class="none-content__info">
+                        <span class="none-content__title">Здесь пока пусто</span>
+                        <span class="none-content__descr">А в галерее вы всегда можете найти что-то интересное для себя</span>
+                        <div>
+                          <a class="default-link" href="#">В галерею</a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </li>
+                <li class="catalog__accordion-item">
+                  <button class="btn-reset catalog__accordion-trigger" aria-expanded="false">
+                    <span class="catalog__accordion-title">C 1900 по 1999 гг.</span>
+                    <span class="catalog__accordion-icon"></span>
+                  </button>
+                  <div class="catalog__accordion-content" aria-hidden="true">
+                    <div class="none-content">
+                      <div class="none-content__placeholder"></div>
+                      <div class="none-content__info">
+                        <span class="none-content__title">Здесь пока пусто</span>
+                        <span class="none-content__descr">А в галерее вы всегда можете найти что-то интересное для себя</span>
+                        <div>
+                          <a class="default-link" href="#">В галерею</a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </li>
+                <li class="catalog__accordion-item">
+                  <button class="btn-reset catalog__accordion-trigger" aria-expanded="false">
+                    <span class="catalog__accordion-title">C 2000 г.</span>
+                    <span class="catalog__accordion-icon"></span>
+                  </button>
+                  <div class="catalog__accordion-content" aria-hidden="true">
+                    <div class="none-content">
+                      <div class="none-content__placeholder"></div>
+                      <div class="none-content__info">
+                        <span class="none-content__title">Здесь пока пусто</span>
+                        <span class="none-content__descr">А в галерее вы всегда можете найти что-то интересное для себя</span>
+                        <div>
+                          <a class="default-link" href="#">В галерею</a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </li>
+              </ul><!-- /.catalog__accordion -->
+            </div><!-- /.catalog__content -->
+          </div><!-- /.catalog__inner-item -->
+          <div class="catalog__inner-item" data-country="belgium">
+            <p class="section__text">
+              Акционеры крупнейших компаний, которые представляют собой яркий пример континентально-европейского типа политической культуры, будут объявлены нарушающими общечеловеческие нормы этики и морали. Являясь всего лишь частью общей картины, стремящиеся вытеснить традиционное производство, нанотехнологии и по сей день остаются уделом либералов, которые жаждут быть функционально разнесены на независимые элементы Бельгия.
+            </p>
+            <div class="catalog__content">
+              <div class="catalog__info">
+                <div class="catalog__info-header">
+                  <div class="none-content-artist">
+                    <img class="none-content-img" src="./img/none-artist.svg" alt="Нет фотографии художника">
+                  </div>
+                </div>
                 <div class="none-content">
-                  <div class="none-content__placeholder"></div>
-                  <div class="none-content__info">
-                    <span class="none-content__title">Здесь пока пусто</span>
-                    <span class="none-content__descr">А в галерее вы всегда можете найти что-то интересное для себя</span>
+                  <div class="none-content__info none-content__info--large">
+                    <span class="none-content__title">Что мы о нём знаем?</span>
+                    <span class="none-content__descr">Пока ничего... Зато мы точно знаем, что в галерее есть на что посмотреть!</span>
                     <div>
                       <a class="default-link" href="#">В галерею</a>
                     </div>
                   </div>
                 </div>
               </div>
-            </li>
-            <li class="catalog__accordion-item">
-              <button class="btn-reset catalog__accordion-trigger" aria-expanded="false">
-                <span class="catalog__accordion-title">C 1900 по 1999 гг.</span>
-                <span class="catalog__accordion-icon"></span>
-              </button>
-              <div class="catalog__accordion-content" aria-hidden="true">
-                <div class="none-content">
-                  <div class="none-content__placeholder"></div>
-                  <div class="none-content__info">
-                    <span class="none-content__title">Здесь пока пусто</span>
-                    <span class="none-content__descr">А в галерее вы всегда можете найти что-то интересное для себя</span>
-                    <div>
-                      <a class="default-link" href="#">В галерею</a>
+              <ul class="list-reset catalog__accordion" data-accordion>
+                <li class="catalog__accordion-item active">
+                  <button class="btn-reset catalog__accordion-trigger" aria-expanded="true">
+                    <span class="catalog__accordion-title">C 1400 по 1499 гг.</span>
+                    <span class="catalog__accordion-icon"></span>
+                  </button>
+                  <div class="catalog__accordion-content" aria-hidden="false">
+                    <div class="none-content">
+                      <div class="none-content__placeholder"></div>
+                      <div class="none-content__info">
+                        <span class="none-content__title">Здесь пока пусто</span>
+                        <span class="none-content__descr">А в галерее вы всегда можете найти что-то интересное для себя</span>
+                        <div>
+                          <a class="default-link" href="#">В галерею</a>
+                        </div>
+                      </div>
                     </div>
                   </div>
-                </div>
-              </div>
-            </li>
-            <li class="catalog__accordion-item">
-              <button class="btn-reset catalog__accordion-trigger" aria-expanded="false">
-                <span class="catalog__accordion-title">C 2000 г.</span>
-                <span class="catalog__accordion-icon"></span>
-              </button>
-              <div class="catalog__accordion-content" aria-hidden="true">
-                <div class="none-content">
-                  <div class="none-content__placeholder"></div>
-                  <div class="none-content__info">
-                    <span class="none-content__title">Здесь пока пусто</span>
-                    <span class="none-content__descr">А в галерее вы всегда можете найти что-то интересное для себя</span>
-                    <div>
-                      <a class="default-link" href="#">В галерею</a>
+                </li>
+                <li class="catalog__accordion-item">
+                  <button class="btn-reset catalog__accordion-trigger" aria-expanded="false">
+                    <span class="catalog__accordion-title">C 1500 по 1599 гг.</span>
+                    <span class="catalog__accordion-icon"></span>
+                  </button>
+                  <div class="catalog__accordion-content" aria-hidden="true">
+                    <div class="none-content">
+                      <div class="none-content__placeholder"></div>
+                      <div class="none-content__info">
+                        <span class="none-content__title">Здесь пока пусто</span>
+                        <span class="none-content__descr">А в галерее вы всегда можете найти что-то интересное для себя</span>
+                        <div>
+                          <a class="default-link" href="#">В галерею</a>
+                        </div>
+                      </div>
                     </div>
                   </div>
-                </div>
-              </div>
-            </li>
-          </ul><!-- /.catalog__accordion -->
-        </div><!-- /.catalog__content -->
+                </li>
+                <li class="catalog__accordion-item">
+                  <button class="btn-reset catalog__accordion-trigger" aria-expanded="false">
+                    <span class="catalog__accordion-title">C 1600 по 1699 гг.</span>
+                    <span class="catalog__accordion-icon"></span>
+                  </button>
+                  <div class="catalog__accordion-content" aria-hidden="true">
+                    <div class="none-content">
+                      <div class="none-content__placeholder"></div>
+                      <div class="none-content__info">
+                        <span class="none-content__title">Здесь пока пусто</span>
+                        <span class="none-content__descr">А в галерее вы всегда можете найти что-то интересное для себя</span>
+                        <div>
+                          <a class="default-link" href="#">В галерею</a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </li>
+                <li class="catalog__accordion-item">
+                  <button class="btn-reset catalog__accordion-trigger" aria-expanded="false">
+                    <span class="catalog__accordion-title">C 1700 по 1799 гг.</span>
+                    <span class="catalog__accordion-icon"></span>
+                  </button>
+                  <div class="catalog__accordion-content" aria-hidden="true">
+                    <div class="none-content">
+                      <div class="none-content__placeholder"></div>
+                      <div class="none-content__info">
+                        <span class="none-content__title">Здесь пока пусто</span>
+                        <span class="none-content__descr">А в галерее вы всегда можете найти что-то интересное для себя</span>
+                        <div>
+                          <a class="default-link" href="#">В галерею</a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </li>
+                <li class="catalog__accordion-item">
+                  <button class="btn-reset catalog__accordion-trigger" aria-expanded="false">
+                    <span class="catalog__accordion-title">C 1800 по 1899 гг.</span>
+                    <span class="catalog__accordion-icon"></span>
+                  </button>
+                  <div class="catalog__accordion-content" aria-hidden="true">
+                    <div class="none-content">
+                      <div class="none-content__placeholder"></div>
+                      <div class="none-content__info">
+                        <span class="none-content__title">Здесь пока пусто</span>
+                        <span class="none-content__descr">А в галерее вы всегда можете найти что-то интересное для себя</span>
+                        <div>
+                          <a class="default-link" href="#">В галерею</a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </li>
+                <li class="catalog__accordion-item">
+                  <button class="btn-reset catalog__accordion-trigger" aria-expanded="false">
+                    <span class="catalog__accordion-title">C 1900 по 1999 гг.</span>
+                    <span class="catalog__accordion-icon"></span>
+                  </button>
+                  <div class="catalog__accordion-content" aria-hidden="true">
+                    <div class="none-content">
+                      <div class="none-content__placeholder"></div>
+                      <div class="none-content__info">
+                        <span class="none-content__title">Здесь пока пусто</span>
+                        <span class="none-content__descr">А в галерее вы всегда можете найти что-то интересное для себя</span>
+                        <div>
+                          <a class="default-link" href="#">В галерею</a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </li>
+                <li class="catalog__accordion-item">
+                  <button class="btn-reset catalog__accordion-trigger" aria-expanded="false">
+                    <span class="catalog__accordion-title">C 2000 г.</span>
+                    <span class="catalog__accordion-icon"></span>
+                  </button>
+                  <div class="catalog__accordion-content" aria-hidden="true">
+                    <div class="none-content">
+                      <div class="none-content__placeholder"></div>
+                      <div class="none-content__info">
+                        <span class="none-content__title">Здесь пока пусто</span>
+                        <span class="none-content__descr">А в галерее вы всегда можете найти что-то интересное для себя</span>
+                        <div>
+                          <a class="default-link" href="#">В галерею</a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </li>
+              </ul><!-- /.catalog__accordion -->
+            </div><!-- /.catalog__content -->
+          </div><!-- /.catalog__inner-item -->
+        </div><!-- /.catalog__inner -->
       </div><!-- /.container -->
     </section><!-- /.section catalog -->
     <section class="section">
@@ -868,7 +1475,7 @@
         <div class="slider editions-slider">
           <div class="slider__controllers slider__controllers--editions">
             <button class="btn-reset slider-btn slider-btn--dark slider-btn--prev editions-slider-btn-prev"></button>
-            <div class="slider__pagination editions-slider__pagination">1 / 3</div>
+            <div class="slider__pagination editions-slider__pagination"></div>
             <button class="btn-reset slider-btn slider-btn--dark slider-btn--next editions-slider-btn-next"></button>
           </div>
           <ul class="list-reset slider-list editions-slider__list">
@@ -1177,7 +1784,11 @@
               </div>
             </div>
           </div><!-- /.contacts__info -->
-          <div class="contacts__map" id="map"></div>
+          <div class="contacts__map" id="map">
+            <div class="slider-lazy-preloader">
+              <span class="slider-lazy-preloader-text">Наведи на меня для загрузки карты</span>
+            </div>
+          </div>
         </div><!-- /.container -->
       </div><!-- /.contacts -->
     </section><!-- /.section contacts -->

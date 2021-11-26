@@ -152,7 +152,6 @@
     height: 100%;
     background-color: $secondary;
 
-    &::after,
     &-icon {
       position: absolute;
       top: 50%;
@@ -161,26 +160,25 @@
       transform: translate(-50%, -50%);
       border: 4px solid $secondary-light;
       border-radius: 50%;
+      width: 42px;
+      height: 42px;
       animation-name: rotate;
       animation-duration: 2s;
       animation-iteration-count: infinite;
-    }
-
-    &::after {
-      content: "";
-      width: 62px;
-      height: 62px;
-      animation-timing-function: linear;
-      border-top-color :transparent;
-      border-bottom-color :transparent;
-    }
-
-    &-icon {
-      width: 42px;
-      height: 42px;
       animation-timing-function: ease-in-out;
       border-left-color :transparent;
-      border-right-color :transparent;
+    }
+
+    &-text {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      z-index: 10;
+      transform: translate(-50%, -50%);
+      animation: op alternate-reverse 2s linear infinite;
+      font-weight: 700;
+      font-size: 30px;
+      color: $white;
     }
   }
 }
@@ -188,4 +186,9 @@
 @keyframes rotate {
   from {transform: translate(-50%, -50%) rotate(0deg);}
   to {transform: translate(-50%, -50%) rotate(360deg);}
+}
+
+@keyframes op {
+  from {opacity: 0.3}
+  to {opacity: 1}
 }

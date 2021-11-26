@@ -1,9 +1,10 @@
 import 'focus-visible';
 import './functions/modernizr-webp-picture';
-import {editionsSliderInit, gallerySliderInit, partnersSliderInit} from "./functions/sliderInit";
-import {accordionInit} from "./functions/accordionInit";
 import {headerDropdownInit} from "./functions/headerDropdownInit";
 import {addScrollHeaderDropdown} from "./functions/addCustomScroll";
+import {editionsSliderInit, gallerySliderInit, partnersSliderInit} from "./functions/sliderInit";
+import {catalogTabsInit} from "./functions/catalogTabsInit";
+import {accordionInit} from "./functions/accordionInit";
 import {validateBookInfo} from "./functions/validateBookInfo";
 import {mapInit} from "./functions/mapInit";
 
@@ -45,6 +46,7 @@ document.addEventListener('DOMContentLoaded', () => {
   headerDropdownInit();
   addScrollHeaderDropdown();
   gallerySliderInit();
+  catalogTabsInit();
   accordionInit();
   editionsSliderInit();
   partnersSliderInit();
