@@ -1,5 +1,6 @@
 import 'focus-visible';
 import './functions/modernizr-webp-picture';
+import {scrollingTo} from "./functions/scrollingTo";
 import {headerDropdownInit} from "./functions/headerDropdownInit";
 import {addScrollHeaderDropdown} from "./functions/addCustomScroll";
 import {editionsSliderInit, gallerySliderInit, partnersSliderInit} from "./functions/sliderInit";
@@ -9,6 +10,18 @@ import {validateBookInfo} from "./functions/validateBookInfo";
 import {mapInit} from "./functions/mapInit";
 
 document.addEventListener('DOMContentLoaded', () => {
+
+  const map = document.getElementById('map');
+  let allLinks = [];
+  allLinks.push.apply(allLinks, document.querySelectorAll('.nav__link'));
+  allLinks.push.apply(allLinks, document.querySelectorAll('.logo'));
+
+  allLinks.forEach(link => {
+    if(link.getAttribute('href')[0] === '#') {
+      link.addEventListener('click', scrollingTo);
+    }
+  });
+
   String.prototype.limit = function (limit, param) {
     let text = this;
     let options = {
@@ -41,7 +54,6 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     return text + options.ending;
   }
-  const map = document.getElementById('map');
 
   headerDropdownInit();
   addScrollHeaderDropdown();

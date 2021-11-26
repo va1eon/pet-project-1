@@ -5,11 +5,32 @@ export const catalogTabsInit = () => {
   const catalogTabListNodes = catalogTabList.querySelectorAll('.catalog__tabs-btn');
   const catalogArtistInfoNodes = catalogArtistInfo.querySelectorAll('.catalog__inner-item');
 
+  const checkDisplayNone = el => {
+    if(el.querySelector('.catalog__accordion').style.display === 'none') {
+      el.querySelector('.catalog__accordion').removeAttribute('style');
+    }
+  }
+
+  const changePositionEl = (el, index, classRemove = false) =>{
+    classRemove
+      ? el.classList.remove('active')
+      : null;
+    el.querySelector('.catalog__accordion').style.display = 'none';
+    el.style.transform = `translateX(${index * (-catalogArtistInfoNodes[index].clientWidth)}px)`;
+  }
+
+  const addClassCurEl = (el, index, classRemove = false) => {
+    el.forEach(e => {
+      changePositionEl(e, index, classRemove);
+    });
+    el[index].classList.add('active');
+    checkDisplayNone(el[index]);
+  }
+
   for(let i = 0; i < catalogTabListNodes.length; i++) {
     catalogTabListNodes.forEach(e => {
       if(e.classList.contains('active') && e.dataset.country === catalogArtistInfoNodes[i].dataset.country) {
-        catalogArtistInfoNodes[i].classList.add('active');
-        catalogArtistInfoNodes[i].style.transform = `translateX(${i * (-catalogArtistInfoNodes[i].clientWidth)}px)`
+        addClassCurEl(catalogArtistInfoNodes, i);
       }
     });
 
@@ -18,13 +39,7 @@ export const catalogTabsInit = () => {
         e.classList.remove('active');
       });
       catalogTabListNodes[i].classList.add('active');
-      catalogArtistInfoNodes.forEach(e => {
-        e.classList.remove('active');
-      });
-      catalogArtistInfoNodes[i].classList.add('active');
-      catalogArtistInfoNodes.forEach(e => {
-        e.style.transform = `translateX(${i * (-catalogArtistInfoNodes[i].clientWidth)}px)`
-      });
+      addClassCurEl(catalogArtistInfoNodes, i, true);
     });
   }
 }
