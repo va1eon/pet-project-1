@@ -7,3 +7,4 @@ export const accessClose = (btnElement, contentElement) => {
   btnElement.setAttribute('aria-expanded', 'false');
   contentElement.setAttribute('aria-hidden', 'true');
 }
+// функции для доступности (открыто/закрыто)

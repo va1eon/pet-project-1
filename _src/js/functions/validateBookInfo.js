@@ -1,6 +1,9 @@
 export const validateBookInfo = () => {
+  // обрезка предложения
   const pruneTitles = document.querySelectorAll('[data-prune]');
-  pruneTitles.forEach(e => e.innerText = e.innerText.limit(22, {words: false}))
+  pruneTitles.forEach(e => {
+    e.innerText = e.innerText.limit(22, {words: false});
+  })
 
   const bookPrices = document.querySelectorAll('[data-book-price]');
   let str = '';
@@ -26,6 +29,7 @@ export const validateBookInfo = () => {
     }
   }
 
+  // отформатирование цены
   bookPrices.forEach(price => {
     const el = parseInt(price.children[0].innerText).toString();
     validatedPrice(el, 3, price);

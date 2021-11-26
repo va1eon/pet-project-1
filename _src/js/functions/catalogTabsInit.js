@@ -1,46 +1,62 @@
+const TAB = {
+  buttons: '.catalog__tabs-btn',
+  contents: '.catalog__inner-item',
+  cl: 'active',
+  accordionCl: '.catalog__accordion',
+  data: e => e.dataset.country
+}
+
+
 export const catalogTabsInit = () => {
-  const catalogTabList = document.getElementById('catalog-tab-list');
-  const catalogArtistInfo = document.getElementById('catalog-artist-info');
+  const btn = document.querySelectorAll(TAB.buttons);
+  const content = document.querySelectorAll(TAB.contents);
 
-  const catalogTabListNodes = catalogTabList.querySelectorAll('.catalog__tabs-btn');
-  const catalogArtistInfoNodes = catalogArtistInfo.querySelectorAll('.catalog__inner-item');
+  // получаем стили для transform
+  const getStyleTransform = index => `translateX(${index * (-content[index].clientWidth)}px)`;
 
-  const getStyleTransform = (el, index) => el.style.transform = `translateX(${index * (-catalogArtistInfoNodes[index].clientWidth)}px)`;
-
+  // скрыт ли аккордион
   const checkDisplayNone = el => {
-    if(el.querySelector('.catalog__accordion').style.display === 'none') {
-      el.querySelector('.catalog__accordion').removeAttribute('style');
+    if (el.querySelector(TAB.accordionCl).style.display === 'none') {
+      el.querySelector(TAB.accordionCl).removeAttribute('style');
     }
   }
 
-  const changePositionEl = (el, index, classRemove = false) =>{
-    classRemove ? el.classList.remove('active') : null;
-    el.querySelector('.catalog__accordion').style.display = 'none';
-    getStyleTransform(el, index);
-    window.addEventListener('resize', () => getStyleTransform(el, index))
+  // меням transform у элементов
+  const changePositionEl = (el, index, classRemove = false) => {
+    classRemove ? el.classList.remove(TAB.cl) : null; // удалаение класса (справедливо для выбранного элемента)
+    el.querySelector(TAB.accordionCl).style.display = 'none';
+    el.style.transform = getStyleTransform(index);
+
+    // следить за изменением ширины вьюпорта (для responsive)
+    window.addEventListener('resize', () => {
+      el.style.transform = getStyleTransform(index);
+    });
   }
 
+  // добавить класс для выбранного элемента
   const addClassCurEl = (el, index, classRemove = false) => {
     el.forEach(e => {
       changePositionEl(e, index, classRemove);
     });
-    el[index].classList.add('active');
+    el[index].classList.add(TAB.cl);
     checkDisplayNone(el[index]);
   }
 
-  for(let i = 0; i < catalogTabListNodes.length; i++) {
-    catalogTabListNodes.forEach(e => {
-      if(e.classList.contains('active') && e.dataset.country === catalogArtistInfoNodes[i].dataset.country) {
-        addClassCurEl(catalogArtistInfoNodes, i);
+  // перебор элементов
+  for (let i = 0; i < btn.length; i++) {
+    btn.forEach(e => {
+      if (e.classList.contains(TAB.cl) && TAB.data(e) === TAB.data(content[i])) {
+        addClassCurEl(content, i);
       }
     });
 
-    catalogTabListNodes[i].addEventListener('click', () => {
-      catalogTabListNodes.forEach(e => {
-        e.classList.remove('active');
+    // клик по кнопке
+    btn[i].addEventListener('click', () => {
+      btn.forEach(e => {
+        e.classList.remove(TAB.cl);
       });
-      catalogTabListNodes[i].classList.add('active');
-      addClassCurEl(catalogArtistInfoNodes, i, true);
+      btn[i].classList.add(TAB.cl);
+      addClassCurEl(content, i, true);
     });
   }
 }

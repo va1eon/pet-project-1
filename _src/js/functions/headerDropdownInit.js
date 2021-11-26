@@ -12,6 +12,7 @@ const DROPDOWN = {
 export const headerDropdownInit = () => {
   const headerBottomItems = document.querySelectorAll(DROPDOWN.selector);
 
+  // добавить класс для текущей
   const addClass = item => {
     headerBottomItems.forEach(e => {
       e.btn.classList.remove(DROPDOWN.btnCl);
@@ -25,6 +26,7 @@ export const headerDropdownInit = () => {
     accessOpen(item.btn, item.dropdownList);
   }
 
+  // удалить класс
   const removeClass = item => {
     item.btn.classList.remove(DROPDOWN.btnCl);
     item.dropdownList.classList.remove(DROPDOWN.contentCl);
@@ -37,9 +39,10 @@ export const headerDropdownInit = () => {
     
 
     item.btn.addEventListener('click', () => {
-      item.btn.classList.contains(DROPDOWN.btnCl) ? removeClass(item) : addClass(item);
+      item.btn.classList.contains(DROPDOWN.btnCl) ? removeClass(item) : addClass(item); // решение при клике
     })
 
+    // закрыть при клике на другую область
     document.addEventListener('click', e => {
       if(e.target !== item.btn) {
         if (item.btn.classList.contains(DROPDOWN.btnCl)) {
@@ -48,6 +51,7 @@ export const headerDropdownInit = () => {
       }
     })
 
+    // закрыть при нажатии на клавишу Esc
     document.addEventListener('keydown', e => {
       if(e.key === 'Escape') {
         if (item.btn.classList.contains(DROPDOWN.btnCl)) {

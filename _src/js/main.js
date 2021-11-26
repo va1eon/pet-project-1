@@ -13,28 +13,34 @@ import {mapInit} from "./functions/mapInit";
 document.addEventListener('DOMContentLoaded', () => {
 
   const map = document.getElementById('map');
+  // все ссылки для прокрктика до якоря
   let allLinks = [];
   allLinks.push.apply(allLinks, document.querySelectorAll('.nav__link'));
   allLinks.push.apply(allLinks, document.querySelectorAll('.logo'));
   allLinks.push.apply(allLinks, document.querySelectorAll('[data-to-gallery]'));
+  allLinks.push.apply(allLinks, document.querySelectorAll('[data-hero-btn]'));
 
+  // клик по ссылкам
   allLinks.forEach(link => {
-    if(link.getAttribute('href')[0] === '#') {
+    if (link.getAttribute('href')[0] === '#') {
       link.addEventListener('click', scrollingTo);
     }
   });
 
+  // ===== метод обьекта String =====
   String.prototype.limit = function (limit, param) {
     let text = this;
     let options = {
-      ending: '...',
-      trim: true,
-      word: true,
+      ending: '...', // что будет написано после обрезки
+      trim: true, // удалить пробел в начале и в конце
+      word: true, // соблюдать целостность слова (если что)
     }
 
+    // проверка заданного лимита (целое, положительное число)
     if (limit !== parseInt(limit) || limit <= 0) {
       return this;
     }
+    // применение заданных параметров
     if (typeof param === 'object') {
       for (let prop in param) {
         if (param.hasOwnProperty.call(param, prop)) {
@@ -42,6 +48,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
       }
     }
+    // удаление пробелов в начале и в конце
     if (options.trim) {
       text = text.trim();
     }
@@ -49,23 +56,24 @@ document.addEventListener('DOMContentLoaded', () => {
       return text;
     }
 
-    text = text.slice(0, limit);
+    text = text.slice(0, limit); // обрезка по заданному лимиту
     let lastSpace = text.lastIndexOf(' ');
+
+    // условаия проверки на сохранение целостности слова
     if (options.word && lastSpace > 0) {
       text.substr(0, lastSpace);
     }
-    return text + options.ending;
+    return text + options.ending; // возварщем конечный результат
   }
 
-  headerDropdownInit();
-  addScrollHeaderDropdown();
-  gallerySliderInit();
-  catalogTabsInit();
-  accordionInit();
-  eventsOpen();
-  editionsSliderInit();
-  partnersSliderInit();
-  validateBookInfo();
-  mapInit(map);
-
+  headerDropdownInit(); // инициализация открытия дропдауна
+  addScrollHeaderDropdown(); // добавление скролла для дропдауна
+  gallerySliderInit(); // инициализация слайдер галерея
+  catalogTabsInit(); // инициализация табов каталога
+  accordionInit(); // инициализация аккордиона
+  eventsOpen(); // открытие событий
+  editionsSliderInit(); // инициалиазция слайдера изданий
+  partnersSliderInit(); // инициалиазция слайдера партнеры
+  validateBookInfo(); // отформатирования для текста в изданиях
+  mapInit(map); // инициалиазция карты
 });
