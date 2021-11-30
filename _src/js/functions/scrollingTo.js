@@ -24,6 +24,6 @@ const smoothScroll = e => {
   window.requestAnimationFrame(step);
 }
 
-export const scrollingTo = e => {
+export const scrollingTo = (e) => {
   smoothScroll(e);
 }

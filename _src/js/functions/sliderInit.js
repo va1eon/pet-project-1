@@ -1,9 +1,13 @@
-import Swiper, {A11y, Grid, Lazy, Navigation, Pagination} from 'swiper';
+import Swiper, {A11y, FreeMode, Grid, Lazy, Navigation, Pagination} from 'swiper';
 
 export const gallerySliderInit = () => {
   const gallerySlider = new Swiper('.gallery-slider', {
-    modules: [Navigation, Pagination, Grid, Lazy],
-    slidesPerView: 3,
+    modules: [Navigation, Pagination, Grid, Lazy, FreeMode],
+    freeMode: {
+      enabled: true,
+      sticky: true,
+      momentum: false,
+    },
     grid: {
       rows: 2,
     },
@@ -25,14 +29,27 @@ export const gallerySliderInit = () => {
       el: '.gallery-slider__pagination',
       type: 'fraction'
     },
-    spaceBetween: 50,
+    spaceBetween: 34,
+    slidesPerView: 2,
     observer: true,
+
+    breakpoints: {
+      1471: {
+        spaceBetween: 50,
+        slidesPerView: 3,
+      }
+    }
   });
 }
 
 export const editionsSliderInit = () => {
   const editionsSlider = new Swiper('.editions-slider', {
-    modules: [Navigation, Pagination, Lazy, A11y],
+    modules: [Navigation, Pagination, Lazy, A11y, FreeMode],
+    freeMode: {
+      enabled: true,
+      sticky: true,
+      momentum: false,
+    },
     slidesPerView: 'auto',
     wrapperClass: 'editions-slider__list',
     slideClass: 'editions-slider__item',
@@ -60,7 +77,6 @@ export const editionsSliderInit = () => {
 export const partnersSliderInit = () => {
   const partnersSlider = new Swiper('.partners__slider', {
     modules: [Navigation, Lazy],
-    slidesPerView: 3,
     wrapperClass: 'partners__list',
     slideClass: 'partners__item',
     preloadImages: false,
@@ -73,7 +89,14 @@ export const partnersSliderInit = () => {
       prevEl: '.partners-btn-prev',
       nextEl: '.partners-btn-next',
     },
+    slidesPerView: 2,
     spaceBetween: 50,
     observer: true,
+
+    breakpoints: {
+      1230: {
+        slidesPerView: 3,
+      }
+    }
   });
 }
