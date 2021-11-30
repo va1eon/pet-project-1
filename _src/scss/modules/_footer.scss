@@ -14,6 +14,10 @@
 
     &:not(:first-child) {
       margin-left: 20px;
+
+      @include media-tablet {
+        margin-left: 30px;
+      }
     }
   }
 
@@ -24,7 +28,7 @@
     fill: $border;
     transition: fill .2s ease-in-out;
 
-    &:hover,
+    &[data-hover="true"]:hover,
     &.focus-visible {
       fill: $white;
     }
@@ -35,6 +39,11 @@
 
     &:active {
       fill: $primary;
+    }
+
+    @include media-tablet {
+      width: 60px;
+      height: 60px;
     }
   }
 

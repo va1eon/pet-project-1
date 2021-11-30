@@ -26,7 +26,7 @@
     color: $white;
     transition: background-color .2s ease-in-out;
 
-    &:hover,
+    &[data-hover="true"]:hover,
     &.focus-visible,
     &:active {
       background-color: rgba($white, 0.2);
@@ -76,5 +76,19 @@
 
   &-slider__item {
     height: 350px;
+
+    @include media-tablet {
+      height: 280px;
+    }
+  }
+
+  @include media-tablet {
+    &-slider {
+      max-width: 595px;
+    }
+
+    &-slider__list {
+      max-height: 595px;
+    }
   }
 }

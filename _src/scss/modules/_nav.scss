@@ -3,15 +3,85 @@
   width: 100%;
   max-width: 77.9%;
 
+  @include media-tablet {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    opacity: 0;
+    visibility: hidden;
+    flex-direction: column;
+    align-items: flex-start;
+    padding-top: 94px;
+    padding-bottom: 51px;
+    max-width: 100vw;
+    height: 100vh;
+    transition: opacity .3s ease-in-out, visibility .3s ease-in-out;
+
+    &::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      opacity: 0;
+      visibility: hidden;
+      background-color: rgba($black, 0.9);
+      transition: ease-in-out, opacity .3s, visibility .3s ease-in-out;
+    }
+
+
+    &.open {
+      display: flex;
+      opacity: 1;
+      visibility: visible;
+
+      &::after {
+        opacity: 1;
+        visibility: visible;
+      }
+    }
+
+    &__mobile-footer {
+      position: relative;
+      z-index: 2;
+      padding: 0 15px;
+      margin: 0 auto;
+      width: 100%;
+      max-width: $container-tablet;
+    }
+  }
+
   &__list {
     display: flex;
     align-items: center;
+
+    @include media-tablet {
+      position: relative;
+      z-index: 2;
+      flex-direction: column;
+      width: 100%;
+      max-width: $container-tablet;
+      overflow-y: auto;
+      padding: 0 15px;
+      margin: 0 auto;
+      align-items: flex-start;
+    }
   }
 
   &__item {
 
     &:not(:last-child) {
       margin-right: 62px;
+
+      @include media-laptop {
+        margin-right: 40px;
+      }
+
+      @include media-tablet {
+        margin-right: 0;
+      }
     }
   }
 
@@ -22,7 +92,7 @@
     color: $white;
     transition: color .2s ease-in-out;
 
-    &:hover {
+    &[data-hover="true"]:hover {
       color: $primary-light;
     }
 
@@ -32,6 +102,11 @@
 
     &:active {
       color: $secondary;
+    }
+
+    @include media-tablet {
+      font-size: 24px;
+      line-height: 64px;
     }
   }
 }

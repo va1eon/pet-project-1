@@ -2,6 +2,11 @@
   .section {
     --gallery-bg: url('../img/gallery-bg.jpg');
     --editions-bg: url('../img/editions-bg.jpg');
+
+    @include media-tablet {
+        --gallery-bg: url('../img/gallery-tablet-bg.jpg');
+        --editions-bg: url('../img/editions-tablet-bg.jpg');
+      }
   }
 }
 
@@ -9,6 +14,11 @@
   .section {
     --gallery-bg: url('../img/gallery-bg.webp');
     --editions-bg: url('../img/editions-bg.webp');
+
+    @include media-tablet {
+        --gallery-bg: url('../img/gallery-tablet-bg.webp');
+        --editions-bg: url('../img/editions-tablet-bg.webp');
+      }
   }
 }
 
@@ -68,5 +78,10 @@
     max-width: 400px;
     margin-right: 20px;
     @include flex-column;
+
+    @include media-tablet {
+      max-width: 280px;
+      margin-right: 0;
+    }
   }
 }

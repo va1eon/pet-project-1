@@ -10,6 +10,11 @@
     margin-left: 38px;
     display: flex;
     align-items: center;
+
+    @include media-tablet {
+      margin-top: 5px;
+      margin-left: 41px;
+    }
   }
 
   &__tabs-item {
@@ -28,7 +33,7 @@
     @include bg-c-cv;
     transition: filter .2s ease-in-out, border-color .2s ease-in-out;
 
-    &:hover,
+    &[data-hover="true"]:hover,
     &.focus-visible {
       filter: drop-shadow(0 0 20px rgba($primary, 0.7));
     }
@@ -153,8 +158,13 @@
     & + .catalog__accordion-item {
       .catalog__accordion-trigger {
         border-top-color: transparent;
-        &:hover {
+
+        &[data-hover="true"]:hover {
           border-color: $primary;
+        }
+
+        &:active{
+          border-color: $secondary;
         }
       }
     }
@@ -188,8 +198,13 @@
       & + .catalog__accordion-item {
         .catalog__accordion-trigger {
           border-top-color: $border;
-          &:hover {
+
+          &[data-hover="true"]:hover {
             border-color: $primary;
+          }
+
+          &:active{
+            border-color: $secondary;
           }
         }
       }
@@ -199,6 +214,10 @@
         opacity: 1;
         visibility: visible;
         max-height: 288px; /// TODO: убери это потом
+
+        @include media-laptop {
+          max-height: 437px;
+        }
       }
     }
   }
@@ -213,7 +232,7 @@
     text-align: left;
     transition: border-color .2s ease-in-out;
 
-    &:hover {
+    &[data-hover="true"]:hover {
       border-color: $primary;
 
       .catalog__accordion-title {
@@ -311,10 +330,18 @@
     flex-wrap: wrap;
     max-height: 290px;
     overflow: hidden;
+
+    @include media-laptop {
+      max-height: 400px;
+    }
   }
 
   &__accordion-content-item {
     margin-right: 62px;
+
+    @include media-laptop {
+      margin-right: 66px;
+    }
   }
 
   &__accordion-content-link {
@@ -324,7 +351,7 @@
     color: $text;
     transition: color .2s ease-in-out;
 
-    &:hover {
+    &[data-hover="true"]:hover {
       color: $primary;
 
       &:after {

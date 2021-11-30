@@ -24,6 +24,10 @@
       height: 100%;
       background-color: $white;
     }
+
+    @include media-tablet {
+      max-width: 436px;
+    }
   }
 
   &__info-inner {
@@ -34,6 +38,10 @@
     padding-top: 126px;
     width: 100%;
     max-width: 400px;
+
+    @include media-tablet {
+      max-width: 335px;
+    }
   }
 
   &__address {
@@ -73,7 +81,7 @@
     color: $text;
     transition: background-color .2s ease-in-out;
 
-    &:hover,
+    &[data-hover="true"]:hover,
     &.focus-visible {
       background-color: #eaeaea;
     }
@@ -84,6 +92,10 @@
 
     &::placeholder {
       color: $text-light;
+    }
+
+    @include media-tablet {
+      margin-bottom: 24px;
     }
   }
 
@@ -98,7 +110,16 @@
 
   &__social-list {
     display: flex;
-    column-gap: 21px;
+  }
+
+  &__social-item {
+    &:not(:last-child) {
+      margin-right: 21px;
+
+      @include media-tablet {
+        margin-right: 31px;
+      }
+    }
   }
 
   &__social-link {
@@ -123,7 +144,7 @@
       transition: opacity .2s ease-in-out;
     }
 
-    &:hover,
+    &[data-hover="true"]:hover,
     &.focus-visible {
       opacity: 0.5;
     }
@@ -137,6 +158,11 @@
       &::after {
         opacity: 1;
       }
+    }
+
+    @include media-tablet {
+      width: 58px;
+      height: 58px;
     }
   }
 

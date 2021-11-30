@@ -2,12 +2,24 @@
   --intro-bg-1: url('../img/intro-bg-1.jpg');
   --intro-bg-2: url('../img/intro-bg-2.jpg');
   --intro-bg-3: url('../img/intro-bg-3.jpg');
+
+  @include media-tablet {
+    --intro-bg-1: url('../img/intro-tablet-bg-1.jpg');
+    --intro-bg-2: url('../img/intro-tablet-bg-2.jpg');
+    --intro-bg-3: url('../img/intro-tablet-bg-3.jpg');
+  }
 }
 
 .webp .hero {
   --intro-bg-1: url('../img/intro-bg-1.webp');
   --intro-bg-2: url('../img/intro-bg-2.webp');
   --intro-bg-3: url('../img/intro-bg-3.webp');
+
+  @include media-tablet {
+    --intro-bg-1: url('../img/intro-tablet-bg-1.webp');
+    --intro-bg-2: url('../img/intro-tablet-bg-2.webp');
+    --intro-bg-3: url('../img/intro-tablet-bg-3.webp');
+  }
 }
 
 .hero {
@@ -67,17 +79,32 @@
 
   &.animate {
     &::after {
-      animation: background alternate-reverse 20s ease-in-out infinite;
+      animation: background alternate 20s ease-in-out infinite;
     }
+  }
+
+  @include  media-tablet {
+    padding-top: 213px;
+    padding-bottom: 114px;
+    height: 100vh;
   }
 
   &__container {
     position: relative;
     z-index: 2;
+    height: 100%;
   }
 
   &__inner {
     max-width: 597px;
+
+    @include  media-tablet {
+      max-width: 661px;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      min-height: 100%;
+    }
   }
 
   &__title {
@@ -86,6 +113,10 @@
     font-size: 72px;
     line-height: 1.15;
     color: $white;
+
+    @include media-tablet {
+      margin-bottom: 11px;
+    }
   }
 
   &__text {
@@ -94,5 +125,13 @@
     font-size: 18px;
     line-height: 167%;
     color: $white;
+
+    @include media-tablet {
+      margin-bottom: 30px;
+    }
+  }
+
+  &__btn {
+    margin-top: auto;
   }
 }

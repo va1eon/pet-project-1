@@ -75,7 +75,7 @@
     }
   }
 
-  &:hover,
+  &[data-hover="true"]:hover,
   &.focus-visible,
   &:active {
     & .tooltip__text {
@@ -84,7 +84,7 @@
     }
   }
 
-  &:hover,
+  &[data-hover="true"]:hover,
   &.focus-visible{
     background-color: $secondary-light;
   }

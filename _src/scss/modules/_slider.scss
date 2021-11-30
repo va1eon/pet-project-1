@@ -33,6 +33,7 @@
     border-width: 2px;
     border-style: solid;
     border-radius: 50%;
+    flex-shrink: 0;
     transition: background-color .2s ease-in-out, border-color .2s ease-in-out, opacity .2s ease-in-out;
 
     &.focus-visible {
@@ -85,7 +86,7 @@
       background-color: $btn-light;
       border-color: $btn-light;
 
-      &:hover:not(:disabled) {
+      &[data-hover="true"]:hover:not(:disabled) {
         background-color: $secondary-light;
         border-color: $secondary-light;
       }
@@ -109,7 +110,7 @@
       background-color: $btn-slider;
       border-color: $btn-slider;
 
-      &:hover:not(:disabled) {
+      &[data-hover="true"]:hover:not(:disabled) {
         background-color: $primary;
         border-color: $primary;
       }
