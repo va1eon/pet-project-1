@@ -1,7 +1,7 @@
 import SimpleBar from "simplebar";
 
 export const addScrollHeaderDropdown = () => {
-  document.querySelectorAll('.header__dropdown')
+  document.querySelectorAll('.header__dropdown-list')
     .forEach(e => {
       new SimpleBar(e, {
         scrollbarMaxSize: 28,
