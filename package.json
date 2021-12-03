@@ -30,6 +30,7 @@
     "gulp-sourcemaps": "^3.0.0",
     "gulp-uglify-es": "^3.0.0",
     "gulp-webp": "^4.0.1",
+    "resize-observer-polyfill": "^1.5.1",
     "sass": "^1.43.4",
     "webpack-stream": "^7.0.0"
   },
