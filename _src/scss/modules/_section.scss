@@ -4,9 +4,19 @@
     --editions-bg: url('../img/editions-bg.jpg');
 
     @include media-tablet {
-        --gallery-bg: url('../img/gallery-tablet-bg.jpg');
-        --editions-bg: url('../img/editions-tablet-bg.jpg');
-      }
+      --gallery-bg: url('../img/gallery-tablet-bg.jpg');
+      --editions-bg: url('../img/editions-tablet-bg.jpg');
+    }
+
+    @include media-tablet-mini {
+      --gallery-bg: url('../img/gallery-tablet-mini-bg.jpg');
+      --editions-bg: url('../img/editions-tablet-mini-bg.jpg');
+    }
+
+    @include media-mobile {
+      --gallery-bg: url('../img/gallery-mobile-bg.jpg');
+      --editions-bg: url('../img/editions-mobile-bg.jpg');
+    }
   }
 }
 
@@ -16,14 +26,28 @@
     --editions-bg: url('../img/editions-bg.webp');
 
     @include media-tablet {
-        --gallery-bg: url('../img/gallery-tablet-bg.webp');
-        --editions-bg: url('../img/editions-tablet-bg.webp');
-      }
+      --gallery-bg: url('../img/gallery-tablet-bg.webp');
+      --editions-bg: url('../img/editions-tablet-bg.webp');
+    }
+
+    @include media-tablet-mini {
+      --gallery-bg: url('../img/gallery-tablet-mini-bg.webp');
+      --editions-bg: url('../img/editions-tablet-mini-bg.webp');
+    }
+
+    @include media-mobile {
+      --gallery-bg: url('../img/gallery-mobile-bg.webp');
+      --editions-bg: url('../img/editions-mobile-bg.webp');
+    }
   }
 }
 
 .section {
   margin-bottom: 80px;
+
+  @include media-custom {
+    margin-bottom: 50px;
+  }
 
   &--last {
     margin-bottom: 0;
@@ -41,9 +65,14 @@
     }
 
     &--mini {
+      margin-bottom: 22px;
       font-weight: 600;
       font-size: 24px;
-      margin-bottom: 22px;
+    }
+
+    @include media-custom {
+      margin-bottom: 3.6vw;
+      font-size: 8.75vw;
     }
   }
 
@@ -57,12 +86,20 @@
     &--project {
       margin-bottom: 20px;
     }
+
+    @include media-custom {
+      font-size: 4.375vw;
+    }
   }
 
   &--img {
     padding: 80px 0;
     @include bg-c-cv;
     background-color: #2a2a2a;
+
+    @include media-custom {
+      padding: 50px 0;
+    }
   }
 
   &--gallery {
@@ -75,13 +112,17 @@
   }
 
   &__filter {
-    max-width: 400px;
     margin-right: 20px;
+    max-width: 400px;
     @include flex-column;
 
     @include media-tablet {
-      max-width: 280px;
       margin-right: 0;
+      max-width: 280px;
+    }
+
+    @include media-custom {
+      max-width: 100%;
     }
   }
 }

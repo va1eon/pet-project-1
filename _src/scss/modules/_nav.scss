@@ -7,16 +7,17 @@
     position: absolute;
     top: 0;
     left: 0;
-    z-index: 1;
-    opacity: 0;
-    visibility: hidden;
+    z-index: 2;
     flex-direction: column;
     align-items: flex-start;
     padding-top: 94px;
-    padding-bottom: 51px;
+    padding-bottom: 6.6vh;
     max-width: 100vw;
     height: 100vh;
-    transition: opacity .3s ease-in-out, visibility .3s ease-in-out;
+    transform: translateX(-100%);
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity .3s ease-in-out, visibility .3s ease-in-out, transform .3s ease-in-out;
 
     &::after {
       content: "";
@@ -25,15 +26,16 @@
       left: 0;
       width: 100%;
       height: 100%;
+      background-color: rgba($black, 0.9);
       opacity: 0;
       visibility: hidden;
-      background-color: rgba($black, 0.9);
       transition: ease-in-out, opacity .3s, visibility .3s ease-in-out;
     }
 
 
     &.open {
       display: flex;
+      transform: translateX(0);
       opacity: 1;
       visibility: visible;
 
@@ -42,15 +44,12 @@
         visibility: visible;
       }
     }
+  }
 
-    &__mobile-footer {
-      position: relative;
-      z-index: 2;
-      padding: 0 15px;
-      margin: 0 auto;
-      width: 100%;
-      max-width: $container-tablet;
-    }
+  @include media-custom {
+    padding-top: 14.1vw;
+    padding-bottom: 8.4vw;
+    height: 111vw;
   }
 
   &__list {
@@ -61,12 +60,20 @@
       position: relative;
       z-index: 2;
       flex-direction: column;
+      align-items: flex-start;
       width: 100%;
       max-width: $container-tablet;
-      overflow-y: auto;
+      margin: 0 auto 20px;
       padding: 0 15px;
-      margin: 0 auto;
-      align-items: flex-start;
+      overflow-y: auto;
+    }
+
+    @include media-tablet-mini {
+      max-width: $container-tablet-mini;
+    }
+
+    @include media-custom {
+      margin-bottom: 10px;
     }
   }
 
@@ -100,13 +107,33 @@
       @include focus-bg;
     }
 
-    &:active {
+    &[data-hover]:active {
       color: $secondary;
     }
 
     @include media-tablet {
       font-size: 24px;
       line-height: 64px;
+    }
+
+    @include media-custom {
+      font-size: 5vw;
+      line-height: 2;
+    }
+  }
+
+  &__mobile-footer {
+    @include media-tablet {
+      position: relative;
+      z-index: 2;
+      margin: 0 auto;
+      padding: 0 15px;
+      width: 100%;
+      max-width: $container-tablet;
+    }
+
+    @include media-tablet-mini {
+      max-width: $container-tablet-mini;
     }
   }
 }

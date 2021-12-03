@@ -2,31 +2,34 @@
 only screen and (-webkit-min-device-pixel-ratio: 1.25),
 only screen and (min-device-pixel-ratio: 1.25),
 only screen and (min-resolution: 1.25dppx) {
-  .no-webp .hero {
-    --intro-bg-1: url('../img/intro-bg-1@2x.jpg');
-    --intro-bg-2: url('../img/intro-bg-2@2x.jpg');
-    --intro-bg-3: url('../img/intro-bg-3@2x.jpg');
-
-    @include media-tablet {
-      --intro-bg-1: url('../img/intro-tablet-bg-1@2x.jpg');
-      --intro-bg-2: url('../img/intro-tablet-bg-2@2x.jpg');
-      --intro-bg-3: url('../img/intro-tablet-bg-3@2x.jpg');
-    }
-  }
-
-  .webp .hero {
-    --intro-bg-1: url('../img/intro-bg-1@2x.webp');
-    --intro-bg-2: url('../img/intro-bg-2@2x.webp');
-    --intro-bg-3: url('../img/intro-bg-3@2x.webp');
-
-    @include media-tablet {
-      --intro-bg-1: url('../img/intro-tablet-bg-1@2x.webp');
-      --intro-bg-2: url('../img/intro-tablet-bg-2@2x.webp');
-      --intro-bg-3: url('../img/intro-tablet-bg-3@2x.webp');
-    }
-  }
 
   .no-webp {
+    /* === HERO BLOCK === */
+    .hero {
+      --intro-bg-1: url('../img/intro-bg-1@2x.jpg');
+      --intro-bg-2: url('../img/intro-bg-2@2x.jpg');
+      --intro-bg-3: url('../img/intro-bg-3@2x.jpg');
+
+      @include media-tablet {
+        --intro-bg-1: url('../img/intro-tablet-bg-1@2x.jpg');
+        --intro-bg-2: url('../img/intro-tablet-bg-2@2x.jpg');
+        --intro-bg-3: url('../img/intro-tablet-bg-3@2x.jpg');
+      }
+
+      @include media-tablet-mini {
+        --intro-bg-1: url('../img/intro-tablet-mini-bg-1@2x.jpg');
+        --intro-bg-2: url('../img/intro-tablet-mini-bg-2@2x.jpg');
+        --intro-bg-3: url('../img/intro-tablet-mini-bg-3@2x.jpg');
+      }
+
+      @include media-mobile {
+        --intro-bg-1: url('../img/intro-mobile-bg-1@2x.jpg');
+        --intro-bg-2: url('../img/intro-mobile-bg-2@2x.jpg');
+        --intro-bg-3: url('../img/intro-mobile-bg-3@2x.jpg');
+      }
+    }
+
+    /* === SECTION BLOCK === */
     .section {
       --gallery-bg: url('../img/gallery-bg@2x.jpg');
       --editions-bg: url('../img/editions-bg@2x.jpg');
@@ -35,10 +38,46 @@ only screen and (min-resolution: 1.25dppx) {
         --gallery-bg: url('../img/gallery-tablet-bg@2x.jpg');
         --editions-bg: url('../img/editions-tablet-bg@2x.jpg');
       }
+
+      @include media-tablet-mini {
+        --gallery-bg: url('../img/gallery-tablet-mini-bg@2x.jpg');
+        --editions-bg: url('../img/editions-tablet-mini-bg@2x.jpg');
+      }
+
+      @include media-mobile {
+        --gallery-bg: url('../img/gallery-mobile-bg@2x.jpg');
+        --editions-bg: url('../img/editions-mobile-bg@2x.jpg');
+      }
     }
   }
 
   .webp {
+    /* === HERO BLOCK === */
+    .hero {
+      --intro-bg-1: url('../img/intro-bg-1@2x.webp');
+      --intro-bg-2: url('../img/intro-bg-2@2x.webp');
+      --intro-bg-3: url('../img/intro-bg-3@2x.webp');
+
+      @include media-tablet {
+        --intro-bg-1: url('../img/intro-tablet-bg-1@2x.webp');
+        --intro-bg-2: url('../img/intro-tablet-bg-2@2x.webp');
+        --intro-bg-3: url('../img/intro-tablet-bg-3@2x.webp');
+      }
+
+      @include media-tablet-mini {
+        --intro-bg-1: url('../img/intro-tablet-mini-bg-1@2x.webp');
+        --intro-bg-2: url('../img/intro-tablet-mini-bg-2@2x.webp');
+        --intro-bg-3: url('../img/intro-tablet-mini-bg-3@2x.webp');
+      }
+
+      @include media-mobile {
+        --intro-bg-1: url('../img/intro-mobile-bg-1@2x.webp');
+        --intro-bg-2: url('../img/intro-mobile-bg-2@2x.webp');
+        --intro-bg-3: url('../img/intro-mobile-bg-3@2x.webp');
+      }
+    }
+
+    /* === SECTION BLOCK === */
     .section {
       --gallery-bg: url('../img/gallery-bg@2x.webp');
       --editions-bg: url('../img/editions-bg@2x.webp');
@@ -46,6 +85,16 @@ only screen and (min-resolution: 1.25dppx) {
       @include media-tablet {
         --gallery-bg: url('../img/gallery-tablet-bg@2x.webp');
         --editions-bg: url('../img/editions-tablet-bg@2x.webp');
+      }
+
+      @include media-tablet-mini {
+        --gallery-bg: url('../img/gallery-tablet-mini-bg@2x.webp');
+        --editions-bg: url('../img/editions-tablet-mini-bg@2x.webp');
+      }
+
+      @include media-mobile {
+        --gallery-bg: url('../img/gallery-mobile-bg@2x.webp');
+        --editions-bg: url('../img/editions-mobile-bg@2x.webp');
       }
     }
   }

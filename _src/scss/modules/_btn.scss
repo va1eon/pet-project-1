@@ -12,13 +12,13 @@
 
   &::before {
     content: "";
-    display: block;
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%);
+    display: block;
     width: calc(100% + 15px);
     height: calc(100% + 15px);
+    transform: translate(-50%, -50%);
     border: 2px solid transparent;
     border-radius: inherit;
   }
@@ -36,21 +36,29 @@
   }
 
 
-  &:active {
+  &[data-hover]:active {
+    color: $white;
     background-color: $secondary;
     border-color: $secondary-light;
-    color: $white;
+  }
+
+  @include media-custom {
+    font-size: 3.8vw;
   }
 
   &--big {
     padding-top: 19.5px;
     padding-bottom: 19.5px;
-    border-width: 3px;
-    background-color: $primary;
     color: $white;
+    background-color: $primary;
+    border-width: 3px;
 
     &[data-hover="true"]:hover {
       border-color: $secondary-light;
+    }
+
+    @include media-custom {
+      padding: 2vw 4.7vw 3.1vw;
     }
   }
 
@@ -67,10 +75,15 @@
   }
 
   &--long {
-    color: $white;
-    text-align: center;
     padding-top: 19px;
     padding-bottom: 19px;
     min-width: 257px;
+    color: $white;
+    text-align: center;
+
+    @include media-custom {
+      min-width: 36vw;
+      padding: 4.1% 10%;
+    }
   }
 }

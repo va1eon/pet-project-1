@@ -56,7 +56,6 @@
   }
 }
 
-
 .header {
   position: absolute;
   top: 0;
@@ -78,6 +77,10 @@
 
   &__container--top {
     height: 100px;
+
+    @include media-custom {
+      height: 14.1vw;
+    }
   }
 
   &__login {
@@ -95,20 +98,30 @@
       @include focus-bg;
     }
 
-    &:active {
+    &[data-hover]:active {
       color: $primary;
     }
 
     @include media-tablet {
+      font-weight: 600;
       &:active {
         color: $white;
       }
+    }
+
+    @include media-custom {
+      font-size: 3.8vw;
     }
   }
 
   &__login-icon {
     width: 13px;
     height: 13px;
+
+    @include media-custom {
+      width: 2.8vw;
+      height: 2.8vw;
+    }
   }
 
   &__bottom {
@@ -123,6 +136,8 @@
     height: 70px;
   }
 
+  /* === HEADER BUTTON FOR DROPDOWN === */
+
   &__bottom-list {
     display: flex;
   }
@@ -130,6 +145,7 @@
   &__bottom-list-item {
     position: relative;
     perspective: 600px;
+
     &:not(:last-child) {
       margin-right: 98px;
 
@@ -156,13 +172,13 @@
     }
 
     &::before {
-      transform: rotate(45deg);
       right: 5px;
+      transform: rotate(45deg);
     }
 
     &::after {
-      transform: rotate(-45deg);
       right: 0;
+      transform: rotate(-45deg);
     }
 
     &[data-hover="true"]:hover {
@@ -173,7 +189,7 @@
       @include focus-bg;
     }
 
-    &:active,
+    &[data-hover]:active,
     &.active {
       color: $secondary;
 
@@ -186,6 +202,8 @@
       }
     }
   }
+
+  /* === HEADER DROPDOWN === */
 
   &__dropdown {
     position: absolute;
@@ -207,6 +225,10 @@
     }
   }
 
+  &__dropdown-list {
+    height: 220px;
+  }
+
   &__dropdown-item {
     &:not(:last-child) {
       margin-bottom: 20px;
@@ -218,19 +240,19 @@
     display: block;
     padding: 13px 14px;
     width: 100%;
-    @include bg-c-cv;
     font-weight: 600;
     font-size: 14px;
     line-height: 1;
     color: $white;
+    @include bg-c-cv;
 
     &::after {
-      display: block;
       content: "";
       position: absolute;
       top: 0;
       left: 0;
       z-index: 1;
+      display: block;
       width: 100%;
       height: 100%;
       border: 2px solid transparent;
@@ -248,7 +270,7 @@
       outline: none;
     }
 
-    &:active {
+    &[data-hover]:active {
       &::after {
         border-color: $secondary-light;
         background-color: rgba($primary-light, 0.4);
@@ -336,38 +358,57 @@
     z-index: 2;
   }
 
+  /* === HEADER SEARCH === */
+
   &__search {
     display: flex;
     align-items: center;
 
     @include media-tablet {
-      overflow: hidden;
-      transition: background-color .1s ease-in-out;
-      
-      &.open {
-        background-color: #18171b;;
-        transition-delay: .15s;
-        
-        .header__search-btn,
-        .header__search-input{
-          transform: translateX(0);
-        }
+      position: absolute;
+      top: 50%;
+      right: 15px;
+      transform: translateY(-100px);
+      background-color: #18171b;
+      opacity: 0;
+      visibility: hidden;
+      transition: transform .2s ease-in-out, opacity .2s ease-in-out, visibility .2s ease-in-out;
+    }
 
-        .header__search-input {
-          opacity: 1;
-          visibility: visible;
-        }
-      }
+    @include media-tablet-mini {
+      width: 100%;
+      max-width: calc(100% - 30px);
+      background-color: transparent;
+    }
+
+    @include media-custom {
+      justify-content: center;
     }
   }
 
   &__search-btn {
+    margin-top: 3px;
+    margin-right: 9px;
     width: 23px;
     height: 23px;
     fill: $white;
-    margin-top: 3px;
-    margin-right: 9px;
     transition: fill .2s ease-in-out;
+
+    &--open {
+      display: none;
+
+      @include media-tablet {
+        position: relative;
+        z-index: 1;
+        display: block;
+        transition: opacity .2s ease-in-out, visibility .2s ease-in-out;
+
+        &.open {
+          opacity: 0;
+          visibility: hidden;
+        }
+      }
+    }
 
     &[data-hover="true"]:hover {
       fill: $primary-light;
@@ -377,34 +418,47 @@
       @include focus-bg;
     }
 
-    &:active {
+    &[data-hover]:active {
       fill: $secondary;
     }
 
     @include media-tablet {
-      transform: translateX(222px);
+      margin: 0;
       width: 29px;
       height: 29px;
-      margin: 0;
-      transition: transform .2s ease-in-out;
+    }
+
+    @include media-custom {
+      width: 5vw;
+      height: 5vw;
+
+      &:not(.header__search-btn--open) {
+        align-self: flex-end;
+      }
     }
   }
 
   &__search-icon {
     width: inherit;
     height: inherit;
+
+    @include media-custom {
+      width: 100%;
+      height: 100%;
+    }
   }
 
   &__search-input {
     margin: 0 4px 0 0;
-    background-color: transparent;
-    border: 0;
-    border-bottom: 1px solid $white;
+    width: 100%;
+    max-width: 218px;
     font-size: 18px;
     line-height: 25px;
     color: rgba($white, 0.85);
-    width: 100%;
-    max-width: 218px;
+    background-color: transparent;
+    border: 0;
+    border-bottom: 1px solid $white;
+    border-radius: 0;
     transition: border-color .2s ease-in-out;
 
     &[data-hover="true"]:hover {
@@ -421,14 +475,134 @@
     }
 
     @include media-tablet {
-      transform: translateX(calc(100% + 4px));
-      opacity: 0;
-      visibility: hidden;
-      transition: transform .2s ease-in-out, opacity .2s ease-in-out, visibility .2s ease-in-out;
+      margin-right: 0;
 
       &::placeholder {
         color: transparent;
       }
     }
+
+    @include media-tablet-mini {
+      max-width: 100%;
+      height: 45px;
+    }
   }
+
+  /* --- STYLES TO BE ACTIVE WITH 1299-PX VIEWPORT --- */
+
+  &__search-field {
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+
+    @include media-tablet {
+      display: block;
+      padding: 0 15px;
+      width: 100%;
+      max-width: $container-tablet;
+      height: 100%;
+
+      &.open {
+
+        .header__search {
+          transform: translateY(-50%);
+          opacity: 1;
+          visibility: visible;
+        }
+      }
+    }
+
+    @include media-tablet-mini {
+      z-index: 2;
+      max-width: $container-tablet-mini;
+      background-color: $black;
+      opacity: 0;
+      visibility: hidden;
+      transform: translate(-50%, -100%);
+      transition: transform .2s ease-in-out, opacity .2s ease-in-out, visibility .2s ease-in-out;
+
+      &.open {
+        transform: translate(-50%, 0);
+        opacity: 1;
+        visibility: visible;
+      }
+    }
+
+    @include media-custom {
+      height: 167%;
+      background-color: rgba($black, 0.9);
+    }
+  } // -- NOT DESKTOP!!!
+
+  &__search-label {
+    @include media-tablet-mini{
+      margin-left: 10px;
+      margin-right: 20px;
+      width: 100%;
+    }
+
+    @include media-custom {
+      width: 56.25vw;
+    }
+  } // -- NOT DESKTOP!!!
+
+  &__search-close {
+    position: relative;
+    display: none;
+    width: 29px;
+    height: 29px;
+
+    &::before,
+    &::after {
+      content: "";
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      display: block;
+      width: 30px;
+      height: 3px;
+      transform: translate(-50%, -50%);
+      background-color: $white;
+      transition: background-color .2s ease-in-out;
+    }
+
+    &::before {
+      transform: translate(-50%, -50%) rotate(45deg);
+    }
+
+    &::after {
+      transform: translate(-50%, -50%) rotate(-45deg);
+    }
+
+    &:active {
+      &::after,
+      &::before {
+        background-color: $secondary;
+      }
+    }
+
+    &.focus-visible {
+      @include focus-bg;
+    }
+
+    @include media-tablet-mini {
+      display: block;
+    }
+
+    @include media-custom {
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 5.6vw;
+      height: 5.6vw;
+
+      &::after,
+      &::before {
+        width: 5.7vw;
+        height: 2px;
+      }
+    }
+  } // -- NOT DESKTOP!!!
 }

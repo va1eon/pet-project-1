@@ -1,14 +1,13 @@
 .tooltip {
   position: relative;
   display: inline-block;
-  transform: translateY(3px);
   width: 16px;
   height: 16px;
+  transform: translateY(3px);
   background-color: transparent;
   border: 1px solid $primary;
   border-radius: 50%;
   cursor: pointer;
-
   transition: background-color .1s linear;
 
   &::before,
@@ -17,9 +16,8 @@
     position: absolute;
     left: 50%;
     z-index: 1;
-    transform: translateX(-50%);
-
     display: block;
+    transform: translateX(-50%);
     background-color: $black;
     transition: background-color .1s linear;
   }
@@ -39,8 +37,8 @@
 
   &__text {
     position: absolute;
-    bottom: calc(100% + 14px);
     left: 50%;
+    bottom: calc(100% + 14px);
     z-index: 2;
     transform: translateX(-50%);
 
@@ -48,12 +46,12 @@
     padding: 9px 11px 10px;
     width: max-content;
     max-width: 264px;
-    background-color: $primary;
+    font-weight: 600;
     font-size: 12px;
     line-height: 16px;
-    font-weight: 600;
-    color: $white;
     text-align: center;
+    color: $white;
+    background-color: $primary;
     visibility: hidden;
     opacity: 0;
     transition: visibility .1s linear, opacity .1s linear;
@@ -64,11 +62,10 @@
       bottom: -8px;
       left: 50%;
       z-index: 2;
-      transform: translateX(-50%);
-
       display: block;
       width: 0;
       height: 0;
+      transform: translateX(-50%);
       border-style: solid;
       border-width: 8px 7px 0 7px;
       border-color: $primary transparent transparent transparent;

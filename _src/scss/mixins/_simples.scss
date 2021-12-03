@@ -19,6 +19,12 @@
   flex-direction: column;
 }
 
+@mixin flex-all-c {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 @mixin bg-c-cv {
   background-position: center;
   background-repeat: no-repeat;
@@ -27,24 +33,24 @@
 
 @mixin mini-arr{
   content: "";
-  display: block;
   position: absolute;
+  display: block;
   width: 8px;
   height: 1px;
 }
 
 @mixin under-line {
   content: "";
-  display: block;
   position: absolute;
+  display: block;
   width: 100%;
   height: 1px;
-  pointer-events: none;
   background-color: currentColor;
+  pointer-events: none;
 }
 
 @mixin focus-bg {
-  outline: none;
-  background-color: $secondary;
   color: $white;
+  background-color: $secondary;
+  outline: none;
 }

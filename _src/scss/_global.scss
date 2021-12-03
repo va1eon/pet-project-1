@@ -57,17 +57,19 @@ a {
   font-weight: 400;
 
   &.nav-open {
-    width: 100vw;
-    min-height: 100vh;
-    overflow: hidden;
+    @include media-tablet {
+      width: 100vw;
+      min-height: 100vh;
+      overflow: hidden;
+    }
   }
 }
 
 .container {
+  margin: 0 auto;
+  padding: 0 15px;
   width: 100%;
   max-width: $container-full-hd;
-  padding: 0 15px;
-  margin: 0 auto;
 
   &--contacts {
     height: 100%;
@@ -79,6 +81,14 @@ a {
 
   @include media-tablet {
     max-width: $container-tablet;
+  }
+
+  @include media-tablet-mini {
+    max-width: $container-tablet-mini;
+  }
+
+  @include media-custom {
+    //max-width: 100%;
   }
 }
 
@@ -100,9 +110,14 @@ a {
       position: absolute;
       top: 50%;
       left: 50%;
-      transform: translate(-50%, -50%);
+      z-index: 1;
       width: 187px;
+      transform: translate(-50%, -50%);
     }
+  }
+
+  @include media-custom {
+    width: 30.3vw;
   }
 }
 
@@ -137,9 +152,9 @@ a {
   }
 
   &::after {
-    opacity: 0;
     @include under-line;
     bottom: 4px;
+    opacity: 0;
     transition: opacity .2s ease-in-out;
   }
 }

@@ -1,10 +1,10 @@
 .simplebar-track.simplebar-vertical {
-  background-color: $black;
-  width: 2px;
-  right: 19px;
-  height: 220px;
   top: 50%;
+  right: -19px;
+  width: 2px;
+  height: 220px;
   transform: translateY(-50%);
+  background-color: $black;
 }
 
 .simplebar-scrollbar::before {

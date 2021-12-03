@@ -10,8 +10,11 @@
 @import "modules/simplebar";
 @import "modules/btn";
 @import "modules/slider";
-@import "modules/none-content";
-@import "modules/tooltip";
+
+// TODO: Временное решение -----
+/*@import "modules/none-content";
+@import "modules/tooltip";*/
+// TODO: ----- Временное решение
 
 // import modules
 @import "modules/header";
@@ -19,12 +22,15 @@
 @import "modules/hero";
 @import "modules/section";
 @import "modules/gallery";
-@import "modules/catalog";
+
+// TODO: Временное решение -----
+/*@import "modules/catalog";
 @import "modules/events";
 @import "modules/editions";
 @import "modules/partners";
 @import "modules/contacts";
-@import "modules/footer";
+@import "modules/footer";*/
+// TODO: ----- Временное решение
 
 //import media queries
 @import "media-webp";
